@@ -1,3 +1,5 @@
 /.idea
 /__pycache__
 /wolfadmin/__pycache__
+/auth/__pycache__
+/users/__pycache__

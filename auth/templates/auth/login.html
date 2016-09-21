@@ -1,0 +1,33 @@
+{% extends "auth/_base.html" %}
+
+<!-- Static files django label -->
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/compiled/signin.css" %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Log in {% endblock %}
+
+{% block content %}
+
+    <div class="login-wrapper">
+        <img class="logo" src="{% static "img/logo-white.png" %}" alt="logo" />
+
+        <div class="box">
+            <div class="content-wrap">
+                <h6>Log in</h6>
+                <input class="form-control" type="text" placeholder="Username">
+                <input class="form-control" type="password" placeholder="Your password">
+                </br>
+                <a class="btn-glow primary login" href="#">Log in</a>
+            </div>
+        </div>
+
+        <!--<div class="no-account">
+            <p>Don't have an account?</p>
+            <a href="{% url "signup" %}">Sign up</a>
+        </div>-->
+    </div>
+
+{% endblock %}

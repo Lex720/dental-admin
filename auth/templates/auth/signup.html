@@ -1,0 +1,36 @@
+{% extends "auth/_base.html" %}
+
+<!-- Static files django label -->
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/compiled/signup.css" %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content %}
+
+    <div class="header">
+        <img class="logo" src="{% static "img/logo.png" %}" alt="logo" />
+    </div>
+    <div class="login-wrapper">
+        <div class="box">
+            <div class="content-wrap">
+                <h6>Sign Up</h6>
+                <input class="form-control" type="text" placeholder="E-mail address">
+                <input class="form-control" type="password" placeholder="Password">
+                <input class="form-control" type="password" placeholder="Confirm Password">
+                <div class="action">
+                    <a class="btn-glow primary signup" href="#">Sign up</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="already">
+            <p>Already have an account?</p>
+            <a href="{% url "login" %}">Log in</a>
+        </div>
+    </div>
+
+{% endblock %}

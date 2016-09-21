@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="login-bg">
+
+<!-- Mirrored from detail.herokuapp.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Sep 2016 17:09:10 GMT -->
+<head>
+    <title>Wolf Admin CMS | {% block title %} {% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Static files django label -->
+    {% load static %}
+
+    <!-- bootstrap -->
+    <link href="{% static "css/bootstrap/bootstrap.css" %}" rel="stylesheet" />
+    <link href="{% static "css/bootstrap/bootstrap-overrides.css" %}" type="text/css" rel="stylesheet" />
+
+    <!-- libraries -->
+    <link href="{% static "css/lib/font-awesome.css" %}" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/compiled/layout.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/compiled/elements.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/compiled/icons.css" %}" />
+
+    <!-- this page specific styles -->
+    {% block style %} {% endblock %}
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+</head>
+
+<body>
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>
+
+

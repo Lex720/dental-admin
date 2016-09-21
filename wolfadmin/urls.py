@@ -19,6 +19,9 @@ from users import views as users_views
 
 
 urlpatterns = [
+    # Login & Signup
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^signup/$', auth_views.signup, name='signup'),
     # Dashboard
     url(r'^$', auth_views.dashboard, name="dashboard"),
     # Users

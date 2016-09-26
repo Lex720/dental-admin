@@ -54,6 +54,11 @@
                     <input class="search" type="text"/>
                 </label>
             </li>
+            <li class="settings hidden-xs hidden-sm">
+                <a href="{% url "logout" %}" role="button">
+                    <i class="icon-share-alt"></i>
+                </a>
+            </li>
         </ul>
     </header>
     <!-- end navbar -->
@@ -82,6 +87,23 @@
         </ul>
     </div>
     <!-- end sidebar -->
+
+    {% for message in messages %}
+        {% if 'success' in message.tags %}
+            <br>
+            <div class="col-lg-6 col-lg-offset-3 alert alert-success text-center">
+                <i class="icon-ok-sign"></i>
+                {{ message }}
+            </div>
+        {% endif %}
+        {% if 'error' in message.tags %}
+            <br>
+            <div class="col-lg-6 col-lg-offset-3 alert alert-warning text-center">
+                <i class="icon-warning-sign"></i>
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
 
     {% block content %}{% endblock %}
 

@@ -22,45 +22,13 @@ class Auth:
         self.db = db
         self.users = self.db.users
 
-    def find_users(self):
-        users = self.users.find()
-        count = users.count()
-        if count > 0:
-            return users
-        return "There is no users"
-
-    def find_user(self, username, email=None):
-        if email is None:
-            query = {"username": username}
-        else:
-            query = {"username": username, "email": email}
-        user = self.users.find_one(query)
-        if not user:
-            return "User not found"
-        return user
-
-    def add_user(self, username, password, email):
-        password_hash = make_pw_hash(password)
-        user_exist = self.users.find_one({"username": username})
-        email_exist = self.users.find_one({"email": email})
-        if user_exist:
-            return "oops, username is already taken"
-        if email_exist:
-            return "oops, email is already taken"
-        user = {'username': username, 'password': password_hash, 'email': email}
-        try:
-            self.users.insert_one(user)
-        except pymongo.errors.OperationFailure:
-            return "oops, mongo error"
-        return "user created"
-
     def login(self, username, password):
         query = {'username': username}
         user = self.users.find_one(query)
         if not user:
-            return "User not in database"
+            return None
         if user['password'] != make_pw_hash(password):
-            return "User password is not a match"
+            return None
         return user
 
 
@@ -97,6 +65,6 @@ class Session:
     def get_username(self, session_id):
         session = self.get_session(session_id)
         if not session:
-            return "No session id found"
+            return None
         else:
             return session["username"]

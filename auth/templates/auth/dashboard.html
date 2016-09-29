@@ -3,64 +3,67 @@
 <!-- Static files django label -->
 {% load static %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/compiled/index.css" %}" type="text/css" media="screen" />
+{% endblock %}
+
 {% block title %} Dashboard {% endblock %}
 
+{% block active-dashboard %} class="active" {% endblock %}
+
 {% block content %}
-    <!-- main container -->
-    <div class="content">
-        <!-- upper main stats -->
-        <div id="main-stats">
-            <div class="row stats-row">
-                <div class="col-md-3 col-sm-3 stat">
-                    <div class="data">
-                        <span class="number">2457</span>
-                        visits
-                    </div>
-                    <span class="date">Today</span>
+    <!-- upper main stats -->
+    <div id="main-stats">
+        <div class="row stats-row">
+            <div class="col-md-3 col-sm-3 stat">
+                <div class="data">
+                    <span class="number">2457</span>
+                    visits
                 </div>
-                <div class="col-md-3 col-sm-3 stat">
-                    <div class="data">
-                        <span class="number">3240</span>
-                        users
-                    </div>
-                    <span class="date">February 2013</span>
+                <span class="date">Today</span>
+            </div>
+            <div class="col-md-3 col-sm-3 stat">
+                <div class="data">
+                    <span class="number">3240</span>
+                    users
                 </div>
-                <div class="col-md-3 col-sm-3 stat">
-                    <div class="data">
-                        <span class="number">322</span>
-                        orders
-                    </div>
-                    <span class="date">This week</span>
+                <span class="date">February 2013</span>
+            </div>
+            <div class="col-md-3 col-sm-3 stat">
+                <div class="data">
+                    <span class="number">322</span>
+                    orders
                 </div>
-                <div class="col-md-3 col-sm-3 stat last">
-                    <div class="data">
-                        <span class="number">$2,340</span>
-                        sales
-                    </div>
-                    <span class="date">last 30 days</span>
+                <span class="date">This week</span>
+            </div>
+            <div class="col-md-3 col-sm-3 stat last">
+                <div class="data">
+                    <span class="number">$2,340</span>
+                    sales
                 </div>
+                <span class="date">last 30 days</span>
             </div>
         </div>
-        <!-- end upper main stats -->
-        <div id="pad-wrapper">
-            <!-- statistics chart built with jQuery Flot -->
-            <div class="row chart">
-                <div class="col-md-12">
-                    <h4 class="clearfix pull-left">
-                        Statistics
-                    </h4>
-                    <div class="btn-group pull-right">
-                        <button class="glow left">DAY</button>
-                        <button class="glow middle active">MONTH</button>
-                        <button class="glow right">YEAR</button>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div id="statsChart"></div>
+    </div>
+    <!-- end upper main stats -->
+    <div id="pad-wrapper">
+        <!-- statistics chart built with jQuery Flot -->
+        <div class="row chart">
+            <div class="col-md-12">
+                <h4 class="clearfix pull-left">
+                    Statistics
+                </h4>
+                <div class="btn-group pull-right">
+                    <button class="glow left">DAY</button>
+                    <button class="glow middle active">MONTH</button>
+                    <button class="glow right">YEAR</button>
                 </div>
             </div>
-            <!-- end statistics chart -->
+            <div class="col-md-12">
+                <div id="statsChart"></div>
+            </div>
         </div>
+        <!-- end statistics chart -->
     </div>
 
 	<!-- scripts -->

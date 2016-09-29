@@ -1,0 +1,81 @@
+{% extends "_base.html" %}
+
+<!-- Static files django label -->
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/compiled/new-user.css" %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Create User {% endblock %}
+
+{% block content %}
+    <div id="pad-wrapper" class="new-user">
+        <div class="row header">
+            <div class="col-md-offset-4 col-md-4">
+                <h3 class="text-center">Create a new user</h3>
+            </div>
+        </div>
+        <div class="row form-wrapper">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" role="form" action="{% url "create_user" %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 control-label">Name</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-md-2 control-label">Email</label>
+                        <div class="col-md-8">
+                          <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-md-2 control-label">Phone</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="col-md-2 control-label">Role</label>
+                        <div class="col-md-8">
+                            <div class="ui-select">
+                                <select id="role" name="role">
+                                    <option>Select</option>
+                                    <option value="admin">Administrator</option>
+                                    <option value="office">Office</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-md-2 control-label">Username</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-md-2 control-label">Password</label>
+                        <div class="col-md-8">
+                          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password2" class="col-md-2 control-label">Repeat Password</label>
+                        <div class="col-md-8">
+                          <input type="password" class="form-control" name="password2" id="password2" placeholder="Repeat Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" class="btn btn-default">Sign in</button>
+                            <a href="{% url "users" %}" class="btn-flat success pull-right">Back</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

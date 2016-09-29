@@ -27,7 +27,24 @@ class User:
         count = users.count()
         if count > 0:
             return users
-        return "There is no users"
+        return None
+
+    def add_user(self, name, email, phone, role, username, password):
+        password_hash = make_pw_hash(password)
+        user_exist = self.users.find_one({"username": username})
+        email_exist = self.users.find_one({"email": email})
+        if user_exist:
+            return "oops, username is already taken"
+        if email_exist:
+            return "oops, email is already taken"
+        user = {
+            'name': name, 'email': email, 'phone': phone, 'role': role, 'username': username, 'password': password_hash
+        }
+        try:
+            self.users.insert_one(user)
+        except pymongo.errors.OperationFailure:
+            return "oops, mongo error"
+        return True
 
     def find_user(self, username, email=None):
         if email is None:
@@ -38,18 +55,3 @@ class User:
         if not user:
             return "User not found"
         return user
-
-    def add_user(self, username, password, email):
-        password_hash = make_pw_hash(password)
-        user_exist = self.users.find_one({"username": username})
-        email_exist = self.users.find_one({"email": email})
-        if user_exist:
-            return "oops, username is already taken"
-        if email_exist:
-            return "oops, email is already taken"
-        user = {'username': username, 'password': password_hash, 'email': email}
-        try:
-            self.users.insert_one(user)
-        except pymongo.errors.OperationFailure:
-            return "oops, mongo error"
-        return "user created"

@@ -26,10 +26,7 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^signup/$', auth_views.signup, name='signup'),
-    # Users meanwhile
-    url(r'^find_user/$', users_views.find_user, name="find_user"),
-    url(r'^find_users/$', users_views.find_users, name="find_users"),
-    url(r'^add_user/$', users_views.add_user, name="add_user"),
     # Users
     url(r'^users/$', users_views.index, name='users'),
+    url(r'^users/create/$', users_views.create_user, name="create_user"),
 ]

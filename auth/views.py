@@ -6,8 +6,8 @@ from auth.models import Auth, Session
 
 client = MongoClient('db', 27017)
 db = client.wolfadmin
-auth = Auth(db)
 session = Session(db)
+auth = Auth(db)
 
 
 def validate_auth(request):
@@ -61,6 +61,8 @@ def dashboard(request):
 
 
 def test(request):
+    # db.users.delete_many({})
+    # return HttpResponse(db.users.count())
     # db.sessions.delete_many({})
     sessions = db.sessions.find()
     session = "No hay sesion"

@@ -1,10 +1,10 @@
-{% extends "auth/_base.html" %}
+{% extends 'auth/_base.html' %}
 
 <!-- Static files django label -->
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static "css/compiled/signup.css" %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% static 'css/compiled/signup.css' %}" type="text/css" media="screen" />
 {% endblock %}
 
 {% block title %} Sign Up {% endblock %}
@@ -12,7 +12,7 @@
 {% block content %}
 
     <div class="header">
-        <img class="logo" src="{% static "img/logo.png" %}" alt="logo" />
+        <img class="logo" src="{% static 'img/logo.png' %}" alt="logo" />
     </div>
     <div class="login-wrapper">
         <div class="box">
@@ -29,7 +29,7 @@
 
         <div class="already">
             <p>Already have an account?</p>
-            <a href="{% url "login" %}">Log in</a>
+            <a href="{% url 'login' %}">Log in</a>
         </div>
     </div>
 

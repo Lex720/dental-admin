@@ -1,10 +1,10 @@
-{% extends "auth/_base.html" %}
+{% extends 'auth/_base.html' %}
 
 <!-- Static files django label -->
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static "css/compiled/signin.css" %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% static 'css/compiled/signin.css' %}" type="text/css" media="screen" />
 {% endblock %}
 
 {% block title %} Log in {% endblock %}
@@ -12,11 +12,11 @@
 {% block content %}
 
     <div class="login-wrapper">
-        <img class="logo" src="{% static "img/logo-white.png" %}" alt="logo" />
+        <img class="logo" src="{% static 'img/logo-white.png' %}" alt="logo" />
 
         <div class="box">
             <div class="content-wrap">
-                <form class="" action="{% url "login" %}" method="POST">
+                <form class="" action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
                     <h6>Log in</h6>
                     <input name="username" class="form-control" type="text" placeholder="Username" required>
@@ -29,7 +29,7 @@
 
         <!--<div class="no-account">
             <p>Don't have an account?</p>
-            <a href="{% url "signup" %}">Sign up</a>
+            <a href="{% url 'signup' %}">Sign up</a>
         </div>-->
     </div>
 

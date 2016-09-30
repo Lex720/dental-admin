@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^signup/$', auth_views.signup, name='signup'),
     # Users
     url(r'^users/$', users_views.index, name='users'),
-    url(r'^users/create/$', users_views.create_user, name="create_user"),
+    url(r'^users/create/$', users_views.create_user, name='create_user'),
+    url(r'^users/delete/(?P<username>\w+)/$', users_views.delete_user, name='delete_user'),
 ]

@@ -1,10 +1,10 @@
-{% extends "_base.html" %}
+{% extends '_base.html' %}
 
 <!-- Static files django label -->
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static "css/compiled/index.css" %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% static 'css/compiled/index.css' %}" type="text/css" media="screen" />
 {% endblock %}
 
 {% block title %} Dashboard {% endblock %}
@@ -67,16 +67,16 @@
     </div>
 
 	<!-- scripts -->
-    <script src="{% static "js/jquery/jquery-latest.js" %}"></script>
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/jquery-ui-1.10.2.custom.min.js" %}"></script>
+    <script src="{% static 'js/jquery/jquery-latest.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.2.custom.min.js' %}"></script>
     <!-- knob -->
-    <script src="{% static "js/jquery.knob.js" %}"></script>
+    <script src="{% static 'js/jquery.knob.js' %}"></script>
     <!-- flot charts -->
-    <script src="{% static "js/jquery.flot.js" %}"></script>
-    <script src="{% static "js/jquery.flot.stack.js" %}"></script>
-    <script src="{% static "js/jquery.flot.resize.js" %}"></script>
-    <script src="{% static "js/theme.js" %}"></script>
+    <script src="{% static 'js/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'js/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
 
     <script type="text/javascript">
         $(function () {

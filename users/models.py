@@ -17,13 +17,15 @@ def get_random_str(num_chars):
 
 
 class User:
-
     def __init__(self, db):
         self.db = db
         self.users = self.db.users
 
-    def find_users(self):
-        users = self.users.find()
+    def find_users(self, name):
+        query = {}
+        if name is not None:
+            query = {"name": {'$regex': name, '$options': 'i'}}
+        users = self.users.find(query)
         count = users.count()
         if count > 0:
             return users
@@ -46,12 +48,9 @@ class User:
             return "oops, mongo error"
         return True
 
-    def find_user(self, username, email=None):
-        if email is None:
-            query = {"username": username}
-        else:
-            query = {"username": username, "email": email}
-        user = self.users.find_one(query)
+    def delete_user(self, username):
+        query = {"username": username}
+        user = self.users.delete_one(query)
         if not user:
             return "User not found"
-        return user
+        return True

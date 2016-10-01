@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/compiled/new-user.css' %}" type="text/css" media="screen" />
 {% endblock %}
 
-{% block title %} Create User {% endblock %}
+{% block title %} Edit User {% endblock %}
 
 {% block active-users %} class="active" {% endblock %}
 
@@ -15,29 +15,29 @@
     <div id="pad-wrapper" class="new-user">
         <div class="row header">
             <div class="col-md-offset-4 col-md-4">
-                <h3 class="text-center">Create a new user</h3>
+                <h3 class="text-center">Edit user</h3>
             </div>
         </div>
         <div class="row form-wrapper">
             <div class="col-md-offset-2 col-md-8">
-                <form class="form-horizontal" role="form" action="{% url 'create_user' %}" method="post">
+                <form class="form-horizontal" role="form" action="{% url 'edit_user' user.username %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="name" class="col-md-2 control-label">Name</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{ name }}" required>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{ user.name }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-md-2 control-label">Email</label>
                         <div class="col-md-8">
-                          <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{ email }}" required>
+                          <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{ user.email }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="phone" class="col-md-2 control-label">Phone</label>
                         <div class="col-md-8">
-                          <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" value="{{ phone }}" required>
+                          <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" value="{{ user.phone }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,33 +46,15 @@
                             <div class="ui-select">
                                 <select id="role" name="role" required>
                                     <option value="">Select</option>
-                                    <option value="admin" {% if role == "admin" %} {{ "selected" }} {% endif %}>Administrator</option>
-                                    <option value="office" {% if role == "office" %} {{ "selected" }} {% endif %}>Office</option>
+                                    <option value="admin" {% if user.role == "admin" %} {{ "selected" }} {% endif %}>Administrator</option>
+                                    <option value="office" {% if user.role == "office" %} {{ "selected" }} {% endif %}>Office</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="username" class="col-md-2 control-label">Username</label>
-                        <div class="col-md-8">
-                          <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ username }}" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-md-2 control-label">Password</label>
-                        <div class="col-md-8">
-                          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password2" class="col-md-2 control-label">Repeat Password</label>
-                        <div class="col-md-8">
-                          <input type="password" class="form-control" name="password2" id="password2" placeholder="Repeat Password" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <div class="col-md-offset-2 col-md-8">
-                            <button type="submit" class="btn btn-default">Create</button>
+                            <button type="submit" class="btn btn-default">Update</button>
                             <a href="{% url 'users' %}" class="btn-flat success pull-right">Back</a>
                         </div>
                     </div>

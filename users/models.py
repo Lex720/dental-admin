@@ -21,24 +21,35 @@ class User:
         self.db = db
         self.users = self.db.users
 
-    def find_users(self, name):
+    def find_users(self, search):
         query = {}
-        if name is not None:
-            query = {"name": {'$regex': name, '$options': 'i'}}
+        if search is not None:
+            query = {'$or': [
+                {'name': {'$regex': search, '$options': 'i'}},
+                {'username': {'$regex': search, '$options': 'i'}},
+                {'email': {'$regex': search, '$options': 'i'}},
+                {'phone': {'$regex': search, '$options': 'i'}}
+            ]}
         users = self.users.find(query)
         count = users.count()
         if count > 0:
             return users
         return None
 
+    def find_user(self, username):
+        user = self.users.find_one({'username': username})
+        if not user:
+            return None
+        return user
+
     def add_user(self, name, email, phone, role, username, password):
         password_hash = make_pw_hash(password)
-        user_exist = self.users.find_one({"username": username})
-        email_exist = self.users.find_one({"email": email})
+        user_exist = self.users.find_one({'username': username})
+        email_exist = self.users.find_one({'email': email})
         if user_exist:
-            return "oops, username is already taken"
+            return "Oops, username is already taken"
         if email_exist:
-            return "oops, email is already taken"
+            return "Oops, email is already taken"
         user = {
             'name': name, 'email': email, 'phone': phone, 'role': role, 'username': username, 'password': password_hash
         }
@@ -48,9 +59,24 @@ class User:
             return "oops, mongo error"
         return True
 
+    def edit_user(self, username, name, email, phone, role):
+        user = self.find_user(username)
+        if user is None:
+            return "User not found"
+        try:
+            self.users.update_one({'username': username},
+                                  {'$set': {'name': name, 'email': email, 'phone': phone, 'role': role}})
+        except pymongo.errors.OperationFailure:
+            return "Oops, user not updated"
+        return True
+
     def delete_user(self, username):
         query = {"username": username}
-        user = self.users.delete_one(query)
-        if not user:
+        user = self.find_user(username)
+        if user is None:
             return "User not found"
+        try:
+            self.users.delete_one(query)
+        except pymongo.errors.OperationFailure:
+            return "Oops, user not deleted"
         return True

@@ -19,7 +19,6 @@ from users import views as users_views
 
 
 urlpatterns = [
-    url(r'^test/$', auth_views.test, name='test'),
     # Dashboard
     url(r'^$', auth_views.dashboard, name="dashboard"),
     # Login & Signup
@@ -29,5 +28,6 @@ urlpatterns = [
     # Users
     url(r'^users/$', users_views.index, name='users'),
     url(r'^users/create/$', users_views.create_user, name='create_user'),
+    url(r'^users/edit/(?P<username>\w+)/$', users_views.edit_user, name='edit_user'),
     url(r'^users/delete/(?P<username>\w+)/$', users_views.delete_user, name='delete_user'),
 ]

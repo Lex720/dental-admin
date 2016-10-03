@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
 from pymongo import MongoClient
@@ -37,7 +38,15 @@ def index(request, search=None):
     if 'search' in request.GET:
         search = request.GET['search']
     users = Users.find_users(search)
-    return render(request, 'users/list.html', {'users': users})
+    paginator = Paginator(users, 5)
+    page = request.GET.get('page')
+    try:
+        pages = paginator.page(page)
+    except PageNotAnInteger:
+        pages = paginator.page(1)
+    except EmptyPage:
+        pages = paginator.page(paginator.num_pages)
+    return render(request, 'users/list.html', {'users': users, 'pages': pages})
 
 
 def create_user(request):

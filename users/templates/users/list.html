@@ -26,7 +26,6 @@
                 </a>
             </div>
         </div>
-
         <!-- Users table -->
         <div class="row">
             <div class="col-md-12">
@@ -57,7 +56,7 @@
                             <tr class="first">
                                 <td>
                                     <a class="name">{{ user.name }}</a>
-                                    <span class="subtext">{{ user.role }}</span>
+                                    <span class="subtext">{{ user.role|upper }}</span>
                                 </td>
                                 <td>
                                     {{ user.username }}
@@ -84,13 +83,17 @@
                 </table>
             </div>
         </div>
-        <!--<ul class="pagination pull-right">
-            <li><a href="#">&#8249;</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">&#8250;</a></li>
-        </ul>-->
         <!-- end users table -->
+        <!-- Paginator -->
+        <ul class="pagination pull-right">
+            {% if pages.has_previous %}
+                <li><a href="?page={{ pages.previous_page_number }}">&#8249;</a></li>
+            {% endif %}
+            <li class="active"><a>Page {{ pages.number }} of {{ pages.paginator.num_pages }}.</a></li>
+            {% if pages.has_next %}
+                <li><a href="?page={{ pages.next_page_number }}">&#8250;</a></li>
+            {% endif %}
+        </ul>
+        <!-- End paginator -->
     </div>
 {% endblock %}

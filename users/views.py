@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+# from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
 from pymongo import MongoClient
@@ -15,7 +16,7 @@ def validate_auth(request):
     auth_user = None
     if 'session' in request.COOKIES:
         session_id = request.COOKIES['session']
-        auth_user = Sessions.get_username(session_id)
+        auth_user = Sessions.get_session(session_id)
     return auth_user
 
 
@@ -38,6 +39,8 @@ def index(request, search=None):
     if 'search' in request.GET:
         search = request.GET['search']
     users = Users.find_users(search)
+    if users is None:
+        return render(request, 'users/list.html', {'auth_user': auth_user, 'users': users})
     paginator = Paginator(users, 5)
     page = request.GET.get('page')
     try:
@@ -46,16 +49,16 @@ def index(request, search=None):
         pages = paginator.page(1)
     except EmptyPage:
         pages = paginator.page(paginator.num_pages)
-    return render(request, 'users/list.html', {'users': users, 'pages': pages})
+    return render(request, 'users/list.html', {'auth_user': auth_user, 'users': users, 'pages': pages})
 
 
 def create_user(request):
+    auth_user = validate_auth(request)
+    if auth_user is None:
+        error(request, "You must log in first")
+        return redirect('/login')
     if request.method == 'GET':
-        auth_user = validate_auth(request)
-        if auth_user is None:
-            error(request, "You must log in first")
-            return redirect('/login')
-        return render(request, 'users/create.html')
+        return render(request, 'users/create.html', {'auth_user': auth_user})
     else:
         name = request.POST['name']  # "Alexander Gonzalez"
         email = request.POST['email']  # "alexjgonzalezm@gmail.com"
@@ -67,28 +70,30 @@ def create_user(request):
         if form is not True:
             error(request, "There is a problem with your info, please check")
             return render(request, 'users/create.html',
-                          {'name': name, 'email': email, 'phone': phone, 'role': role, 'username': username})
+                          {'auth_user': auth_user, 'name': name, 'email': email, 'phone': phone, 'role': role,
+                           'username': username})
         result = Users.add_user(name, email, phone, role, username, password)
         if result is not True:
             error(request, result)
             return render(request, 'users/create.html',
-                          {'name': name, 'email': email, 'phone': phone, 'role': role, 'username': username})
-        response = redirect('/users')
+                          {'auth_user': auth_user, 'name': name, 'email': email, 'phone': phone, 'role': role,
+                           'username': username})
         success(request, "User registered successfully")
+        response = redirect('/users')
         return response
 
 
 def edit_user(request, username):
+    auth_user = validate_auth(request)
+    if auth_user is None:
+        error(request, "You must log in first")
+        return redirect('/login')
     if request.method == 'GET':
-        auth_user = validate_auth(request)
-        if auth_user is None:
-            error(request, "You must log in first")
-            return redirect('/login')
         user = Users.find_user(username)
         if user is None:
             error(request, "This user does not exist")
             return redirect('/users')
-        return render(request, 'users/edit.html', {'user': user})
+        return render(request, 'users/edit.html', {'auth_user': auth_user, 'user': user})
     else:
         name = request.POST['name']
         email = request.POST['email']
@@ -108,8 +113,7 @@ def edit_user(request, username):
 
 
 def delete_user(request, username):
-    auth_user = validate_auth(request)
-    if auth_user is None:
+    if validate_auth(request) is None:
         error(request, "You must log in first")
         return redirect('/login')
     result = Users.delete_user(username)

@@ -38,9 +38,9 @@ class Session:
         self.db = db
         self.sessions = db.sessions
 
-    def start_session(self, username):
+    def start_session(self, username, role):
         session_id = get_random_str(32)
-        session = {'username': username, '_id': session_id}
+        session = {'username': username, 'role': role, '_id': session_id}
         try:
             self.sessions.insert_one(session)
         except pymongo.errors.OperationFailure:
@@ -60,11 +60,6 @@ class Session:
         if session_id is None:
             return
         session = self.sessions.find_one({'_id': session_id})
-        return session
-
-    def get_username(self, session_id):
-        session = self.get_session(session_id)
         if not session:
             return None
-        else:
-            return session["username"]
+        return session

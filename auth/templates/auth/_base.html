@@ -35,20 +35,7 @@
 
     {% block content %}{% endblock %}
 
-    {% for message in messages %}
-        {% if 'success' in message.tags %}
-            <div class="col-lg-4 col-lg-offset-4 alert alert-success text-center">
-                <i class="icon-ok-sign"></i>
-                {{ message }}
-            </div>
-        {% endif %}
-        {% if 'error' in message.tags %}
-            <div class="col-lg-4 col-lg-offset-4 alert alert-warning text-center">
-                <i class="icon-warning-sign"></i>
-                {{ message }}
-            </div>
-        {% endif %}
-    {% endfor %}
+
 
 </body>
 

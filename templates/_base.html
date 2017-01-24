@@ -48,6 +48,15 @@
                 <img src="{% static 'img/logo.png' %}" alt="logo" />
             </a>
         </div>
+        {% if auth_user != None %}
+            <ul class="nav navbar-nav pull-left">
+                <li>
+                    <a>
+                        User:  <b>{{ auth_user.username|title }}</b> - Role: <b>{{ auth_user.role|title }}</b>
+                    </a>
+                </li>
+            </ul>
+        {% endif%}
         <ul class="nav navbar-nav pull-right hidden-xs">
             <li class="hidden-xs hidden-sm">
                 <label>

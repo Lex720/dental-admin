@@ -14,16 +14,47 @@
     <div class="header">
         <img class="logo" src="{% static 'img/logo.png' %}" alt="logo" />
     </div>
+
+    <div class="row">
+        {% for message in messages %}
+            {% if 'success' in message.tags %}
+                <div class="col-lg-4 col-lg-offset-4 alert alert-success text-center">
+                    <i class="icon-ok-sign"></i>
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% if 'error' in message.tags %}
+                <div class="col-lg-4 col-lg-offset-4 alert alert-warning text-center">
+                    <i class="icon-warning-sign"></i>
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
     <div class="login-wrapper">
         <div class="box">
             <div class="content-wrap">
                 <h6>Sign Up</h6>
-                <input class="form-control" type="text" placeholder="E-mail address">
-                <input class="form-control" type="password" placeholder="Password">
-                <input class="form-control" type="password" placeholder="Confirm Password">
-                <div class="action">
-                    <a class="btn-glow primary signup" href="#">Sign up</a>
-                </div>
+
+                <form class="form-horizontal" role="form" action="{% url 'signup' %}" method="post">
+
+                    {% csrf_token %}
+
+                    <input type="hidden" class="form-control" name="role" id="role" value="admin" required>
+
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{ name }}" required>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" value="{{ phone }}" required>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{ email }}" required>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ username }}" required>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                    <input type="password" class="form-control" name="password2" id="password2" placeholder="Repeat Password" required>
+                    <div class="action">
+                        <button type="submit" class="btn-glow primary signup">Sign up</button>
+                    </div>
+
+                </form>
+
             </div>
         </div>
 

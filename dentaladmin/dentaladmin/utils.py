@@ -1,4 +1,26 @@
-# List of common functions
+# List of common connections and functions
+import pymongo
+import hashlib
+import random
+import string
+
+
+client = pymongo.MongoClient('db', 27017)
+database_connection = client.dentaladmin
+
+database_errors = pymongo.errors
+
+
+def make_pw_hash(password):
+    password = password.encode('utf-8')
+    return hashlib.sha256(password).hexdigest()
+
+
+def get_random_str(num_chars):
+    random_string = ""
+    for i in range(num_chars):
+        random_string = random_string + random.choice(string.ascii_letters)
+    return random_string
 
 
 def validate_form(request):

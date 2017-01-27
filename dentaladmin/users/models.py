@@ -1,24 +1,14 @@
-import hashlib
-import random
-import string
-import pymongo
+from dentaladmin import utils
 
 
-def make_pw_hash(password):
-    password = password.encode('utf-8')
-    return hashlib.sha256(password).hexdigest()
-
-
-def get_random_str(num_chars):
-    random_string = ""
-    for i in range(num_chars):
-        random_string = random_string + random.choice(string.ascii_letters)
-    return random_string
+database = utils.database_connection
+errors = utils.database_errors
 
 
 class User:
-    def __init__(self, db):
-        self.db = db
+
+    def __init__(self):
+        self.db = database
         self.users = self.db.users
 
     def find_users(self, search):
@@ -43,7 +33,7 @@ class User:
         return user
 
     def add_user(self, name, email, phone, role, username, password, pic=None):
-        password_hash = make_pw_hash(password)
+        password_hash = utils.make_pw_hash(password)
         user_exist = self.users.find_one({'username': username})
         email_exist = self.users.find_one({'email': email})
         if user_exist:
@@ -56,7 +46,7 @@ class User:
         }
         try:
             self.users.insert_one(user)
-        except pymongo.errors.OperationFailure:
+        except errors.OperationFailure:
             return "oops, mongo error"
         return True
 
@@ -65,9 +55,11 @@ class User:
         if user is None:
             return "User not found"
         try:
+            if pic is None:
+                pic = user['pic']
             self.users.update_one({'username': username},
                                   {'$set': {'name': name, 'email': email, 'phone': phone, 'role': role, 'pic': pic}})
-        except pymongo.errors.OperationFailure:
+        except errors.OperationFailure:
             return "Oops, user not updated"
         return True
 
@@ -78,6 +70,6 @@ class User:
             return "User not found"
         try:
             self.users.delete_one(query)
-        except pymongo.errors.OperationFailure:
+        except errors.OperationFailure:
             return "Oops, user not deleted"
         return True

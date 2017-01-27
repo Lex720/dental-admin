@@ -1,17 +1,15 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
-from pymongo import MongoClient
 from auth.models import Session
 from .models import User
 from dentaladmin.utils import validate_form
 from dentaladmin.utils import upload_file_verification, upload_file
 # from django.http import HttpResponse
 
-client = MongoClient('db', 27017)
-db = client.wolfadmin
-Sessions = Session(db)
-Users = User(db)
+
+Sessions = Session()
+Users = User()
 
 
 def index(request, search=None):

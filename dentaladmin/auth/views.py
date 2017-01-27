@@ -1,15 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
-from pymongo import MongoClient
 from .models import Auth, Session
 from users.models import User
 from dentaladmin.utils import validate_form
 
-client = MongoClient('db', 27017)
-db = client.wolfadmin
-Sessions = Session(db)
-Auths = Auth(db)
-Users = User(db)
+Auths = Auth()
+Sessions = Session()
+Users = User()
 
 
 def signup(request):

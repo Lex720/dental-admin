@@ -2,173 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f891af9f-2da8-4a78-b296-f2d93b242353" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/Dockerfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dental-admin.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker-compose.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/requirements.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\avatars\doctor-gallery3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\avatars\office-gallery1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\avatars\office-gallery2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\avatars\test-gallery2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\btn-attach.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\btn-setting.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\btn-shuffle.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\btn-tool.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\contact-img.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\contact-img2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\contact-profile.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-arrow-black.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-gallery-edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-gallery-trash.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-mail.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-phone.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-table-delete.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-table-edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\ico-table-new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\lens.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\new-gallery-img.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\no-img-gallery.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\select-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\skin-nav-bullets.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\table-img.png" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\.gitignore" afterPath="$PROJECT_DIR$/dentaladmin/.gitignore" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\_database\db.sqlite3" afterPath="$PROJECT_DIR$/dentaladmin/_database/db.sqlite3" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\__init__.py" afterPath="$PROJECT_DIR$/dentaladmin/auth/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\models.py" afterPath="$PROJECT_DIR$/dentaladmin/auth/models.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\templates\auth\_base.html" afterPath="$PROJECT_DIR$/dentaladmin/auth/templates/auth/_base.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\templates\auth\dashboard.html" afterPath="$PROJECT_DIR$/dentaladmin/auth/templates/auth/dashboard.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\templates\auth\login.html" afterPath="$PROJECT_DIR$/dentaladmin/auth/templates/auth/login.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\templates\auth\signup.html" afterPath="$PROJECT_DIR$/dentaladmin/auth/templates/auth/signup.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\auth\views.py" afterPath="$PROJECT_DIR$/dentaladmin/auth/views.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\manage.py" afterPath="$PROJECT_DIR$/dentaladmin/manage.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\bootstrap\bootstrap-overrides.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/bootstrap/bootstrap-overrides.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\bootstrap\bootstrap-responsive.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/bootstrap/bootstrap-responsive.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\bootstrap\bootstrap.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/bootstrap/bootstrap.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\calendar.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/calendar.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\chart-showcase.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/chart-showcase.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\code-editor.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/code-editor.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\datatables.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/datatables.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\elements.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/elements.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\form-showcase.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/form-showcase.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\form-wizard.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/form-wizard.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\gallery.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/gallery.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\grids.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/grids.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\icons.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/icons.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\index.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/index.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\layout.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/layout.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\new-user.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/new-user.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\personal-info.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/personal-info.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\signin.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/signin.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\signup.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/signup.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\skins\dark.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/skins/dark.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\tables.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/tables.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\ui-elements.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/ui-elements.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\user-list.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/user-list.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\user-profile.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/user-profile.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\compiled\web-app-icons.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/compiled/web-app-icons.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\bgs\landscape.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/bgs/landscape.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_diagonals-thick_18_b81900_40x40.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_diagonals-thick_18_b81900_40x40.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_diagonals-thick_20_666666_40x40.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_diagonals-thick_20_666666_40x40.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_flat_10_000000_40x100.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_flat_10_000000_40x100.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_glass_100_f6f6f6_1x400.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_glass_100_f6f6f6_1x400.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_glass_100_fdf5ce_1x400.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_glass_100_fdf5ce_1x400.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_glass_65_ffffff_1x400.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_glass_65_ffffff_1x400.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-bg_highlight-soft_75_ffe45c_1x100.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-bg_highlight-soft_75_ffe45c_1x100.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-icons_222222_256x240.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-icons_222222_256x240.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-icons_228ef1_256x240.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-icons_228ef1_256x240.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-icons_ef8c08_256x240.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-icons_ef8c08_256x240.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-icons_ffd27a_256x240.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-icons_ffd27a_256x240.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\img\jquery-ui\ui-icons_ffffff_256x240.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/img/jquery-ui/ui-icons_ffffff_256x240.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\bootstrap-wysihtml5.html" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/bootstrap-wysihtml5.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\bootstrap.datepicker.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/bootstrap.datepicker.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\font-awesome.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/font-awesome.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\fullcalendar.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/fullcalendar.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\fullcalendar.print.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/fullcalendar.print.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\jquery-ui-1.10.2.custom.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/jquery-ui-1.10.2.custom.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\jquery.dataTables.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/jquery.dataTables.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\morris.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/morris.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\select2.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/select2.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\css\lib\uniform.default.css" afterPath="$PROJECT_DIR$/dentaladmin/static/css/lib/uniform.default.css" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/dentaladmin/static/font/fontawesome-webfont.svg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\fontawesome-webfontd41d.eot" afterPath="$PROJECT_DIR$/dentaladmin/static/font/fontawesome-webfontd41d.eot" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\fontawesome-webfontf77b.eot" afterPath="$PROJECT_DIR$/dentaladmin/static/font/fontawesome-webfontf77b.eot" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\fontawesome-webfontf77b.ttf" afterPath="$PROJECT_DIR$/dentaladmin/static/font/fontawesome-webfontf77b.ttf" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\fontawesome-webfontf77b.woff" afterPath="$PROJECT_DIR$/dentaladmin/static/font/fontawesome-webfontf77b.woff" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/dentaladmin/static/font/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/dentaladmin/static/font/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/dentaladmin/static/font/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/dentaladmin/static/font/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\font\glyphicons-halflings-regulard41d.eot" afterPath="$PROJECT_DIR$/dentaladmin/static/font/glyphicons-halflings-regulard41d.eot" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\avatars\contact-img.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/avatars/contact-img.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\10.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/10.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\11.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/11.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\7.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/7.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\8.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/8.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\9.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/9.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\back-orange.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/back-orange.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\blueish.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/blueish.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\bgs\landscape.jpg" afterPath="$PROJECT_DIR$/dentaladmin/static/img/bgs/landscape.jpg" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\back_disabled.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/back_disabled.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\back_enabled.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/back_enabled.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\back_enabled_hover.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/back_enabled_hover.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\forward_disabled.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/forward_disabled.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\forward_enabled.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/forward_enabled.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\forward_enabled_hover.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/forward_enabled_hover.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\sort_asc.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/sort_asc.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\sort_asc_disabled.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/sort_asc_disabled.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\sort_both.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/sort_both.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\sort_desc.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/sort_desc.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\datatables\sort_desc_disabled.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/datatables/sort_desc_disabled.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\jquery-ui\slider-handler.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/jquery-ui/slider-handler.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\jquery-ui\slider-handler2.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/jquery-ui/slider-handler2.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\jquery-ui\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/jquery-ui/ui-bg_gloss-wave_35_f6a828_500x100.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\jquery-ui\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/jquery-ui/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\logo-white.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/logo-white.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\logo.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/logo.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\select2\select2.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/select2/select2.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\select2\select2x2.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/select2/select2x2.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\select2\spinner.gif" afterPath="$PROJECT_DIR$/dentaladmin/static/img/select2/spinner.gif" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\uniform\bg-input-focus.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/uniform/bg-input-focus.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\uniform\bg-input.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/uniform/bg-input.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\img\uniform\sprite.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/uniform/sprite.png" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\ace\ace.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/ace/ace.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\bootstrap.datepicker.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/bootstrap.datepicker.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\bootstrap.min.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\fuelux.wizard.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/fuelux.wizard.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\fullcalendar.min.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/fullcalendar.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery-ui-1.10.2.custom.min.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery-ui-1.10.2.custom.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery.dataTables.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery.dataTables.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery.flot.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery.flot.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery.flot.resize.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery.flot.resize.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery.flot.stack.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery.flot.stack.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery.knob.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery.knob.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery.uniform.min.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery.uniform.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\jquery\jquery-latest.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/jquery/jquery-latest.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\morris.min.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/morris.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\select2.min.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/select2.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\theme.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/theme.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\static\js\wysihtml5-0.3.0.js" afterPath="$PROJECT_DIR$/dentaladmin/static/js/wysihtml5-0.3.0.js" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\templates\_base.html" afterPath="$PROJECT_DIR$/dentaladmin/templates/_base.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\__init__.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\admin.py" afterPath="$PROJECT_DIR$/dentaladmin/users/admin.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\apps.py" afterPath="$PROJECT_DIR$/dentaladmin/users/apps.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\migrations\__init__.py" afterPath="$PROJECT_DIR$/dentaladmin/users/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\models.py" afterPath="$PROJECT_DIR$/dentaladmin/users/models.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\templates\users\create.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/create.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\templates\users\edit.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\templates\users\list.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\tests.py" afterPath="$PROJECT_DIR$/dentaladmin/users/tests.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\users\views.py" afterPath="$PROJECT_DIR$/dentaladmin/users/views.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\wolfadmin\__init__.py" afterPath="$PROJECT_DIR$/dentaladmin/users/migrations/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\wolfadmin\settings.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\wolfadmin\urls.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/urls.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\wolfadmin\utils.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/utils.py" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\wolfadmin\wsgi.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/wsgi.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Alexander_Gonzalez.xml" />
+      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\avatars\contact-img.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/contact-img.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/static/img/logo-white.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/logo-white.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/static/img/logo.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dental-admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -189,7 +31,28 @@
     <favorites_list name="dental-admin" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47486034">
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -197,9 +60,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" />
         <option value="$PROJECT_DIR$/dentaladmin/templates/_base.html" />
         <option value="$PROJECT_DIR$/dentaladmin/auth/templates/auth/_base.html" />
+        <option value="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" />
+        <option value="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" />
+        <option value="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -239,8 +105,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,6 +139,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dental-admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dental-admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dentaladmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dental-admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dental-admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dentaladmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -280,8 +186,196 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dental-admin" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f891af9f-2da8-4a78-b296-f2d93b242353" name="Default" comment="" />
@@ -292,29 +386,37 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25642672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -324,19 +426,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.683403">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dentaladmin/auth/templates/auth/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40936556">
           <caret line="49" column="39" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -344,7 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323263">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -352,7 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12839879">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -360,7 +451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6150507">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -368,7 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42677826">
           <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -376,6 +465,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63965267">
           <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54202896">
+          <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dentaladmin/users/templates/users/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5173913">
+          <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.047486033">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47486034">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding />
         </state>
       </provider>

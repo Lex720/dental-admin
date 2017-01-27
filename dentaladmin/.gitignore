@@ -1,6 +1,6 @@
 /.idea
 /__pycache__
-/wolfadmin/__pycache__
+/dentaladmin/__pycache__
 /auth/__pycache__
 /users/__pycache__
-/dentaladmin/static/img/avatars/
+/static/img/avatars/

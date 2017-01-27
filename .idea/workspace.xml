@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f891af9f-2da8-4a78-b296-f2d93b242353" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Alexander_Gonzalez.xml" />
-      <change type="MOVED" beforePath="C:\Users\Alexander Gonzalez\Documents\Kitematic\dental-admin\dentaladmin\static\img\avatars\contact-img.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/contact-img.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/static/img/logo-white.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/logo-white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/static/img/logo.png" afterPath="$PROJECT_DIR$/dentaladmin/static/img/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" afterPath="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" afterPath="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dentaladmin/static/img/avatars/doctor-gallery3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dentaladmin/static/img/avatars/office-gallery1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dentaladmin/.gitignore" afterPath="$PROJECT_DIR$/dentaladmin/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Alexander_Gonzalez.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Alexander_Gonzalez.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dental-admin.iws" />
@@ -45,8 +42,8 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47486034">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.75977653">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,6 +62,7 @@
         <option value="$PROJECT_DIR$/dentaladmin/dentaladmin/settings.py" />
         <option value="$PROJECT_DIR$/dentaladmin/users/templates/users/edit.html" />
         <option value="$PROJECT_DIR$/dentaladmin/users/templates/users/list.html" />
+        <option value="$PROJECT_DIR$/dentaladmin/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -136,46 +134,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dentaladmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dental-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dental-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentaladmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dental-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dental-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentaladmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -502,16 +460,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.047486033">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.023743017">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dentaladmin/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.118715085">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dentaladmin/dentaladmin/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47486034">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.75977653">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>

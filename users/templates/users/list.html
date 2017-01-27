@@ -55,6 +55,12 @@
                         {% for user in users %}
                             <tr class="first">
                                 <td>
+                                    {% if user.pic != None %}
+                                        <img src="{% static user.pic %}" alt="contact" class="img-circle avatar hidden-phone" />
+                                    {% else %}
+                                        <img src="{% static 'img/avatars/contact-img.png' %}" alt="contact" class="img-circle avatar hidden-phone" />
+                                    {% endif %}
+
                                     <a class="name">{{ user.name }}</a>
                                     <span class="subtext">{{ user.role|upper }}</span>
                                 </td>

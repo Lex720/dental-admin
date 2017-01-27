@@ -42,7 +42,7 @@ class User:
             return None
         return user
 
-    def add_user(self, name, email, phone, role, username, password):
+    def add_user(self, name, email, phone, role, pic, username, password):
         password_hash = make_pw_hash(password)
         user_exist = self.users.find_one({'username': username})
         email_exist = self.users.find_one({'email': email})
@@ -51,7 +51,8 @@ class User:
         if email_exist:
             return "Oops, email is already taken"
         user = {
-            'name': name, 'email': email, 'phone': phone, 'role': role, 'username': username, 'password': password_hash
+            'name': name, 'email': email, 'phone': phone, 'role': role, 'pic': pic, 'username': username,
+            'password': password_hash
         }
         try:
             self.users.insert_one(user)
@@ -59,13 +60,13 @@ class User:
             return "oops, mongo error"
         return True
 
-    def edit_user(self, username, name, email, phone, role):
+    def edit_user(self, username, name, email, phone, role, pic):
         user = self.find_user(username)
         if user is None:
             return "User not found"
         try:
             self.users.update_one({'username': username},
-                                  {'$set': {'name': name, 'email': email, 'phone': phone, 'role': role}})
+                                  {'$set': {'name': name, 'email': email, 'phone': phone, 'role': role, 'pic': pic}})
         except pymongo.errors.OperationFailure:
             return "Oops, user not updated"
         return True

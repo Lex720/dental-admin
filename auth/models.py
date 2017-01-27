@@ -63,3 +63,10 @@ class Session:
         if not session:
             return None
         return session
+
+    def validate_auth(self, request):
+        auth_user = None
+        if 'session' in request.COOKIES:
+            session_id = request.COOKIES['session']
+            auth_user = self.get_session(session_id)
+        return auth_user

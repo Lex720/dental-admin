@@ -18,13 +18,14 @@
     <!-- libraries -->
     <link href="{% static 'css/lib/jquery-ui-1.10.2.custom.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'css/lib/font-awesome.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/lib/bootstrap.datepicker.css' %}" type="text/css" rel="stylesheet" />
 
     <!-- global styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/compiled/layout.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/compiled/elements.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/compiled/icons.css' %}" />
 
-    <!-- this page specific styles -->
+    <!-- Specific styles -->
     {% block style %} {% endblock %}
 
     <!-- open sans font -->
@@ -81,10 +82,18 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li {% block active-users %}{% endblock %}>
-                <a href="{% url 'users' %}">
+            {% if auth_user.role == 'admin' %}
+                <li {% block active-users %}{% endblock %}>
+                    <a href="{% url 'users' %}">
+                        <i class="icon-user-md"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            {% endif %}
+            <li {% block active-patients %}{% endblock %}>
+                <a href="{% url 'patients' %}">
                     <i class="icon-group"></i>
-                    <span>Users</span>
+                    <span>Patients</span>
                 </a>
             </li>
         </ul>
@@ -112,6 +121,40 @@
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+
+    <!-- global scripts -->
+    <script src="{% static 'js/bootstrap.datepicker.js' %}"></script>
+    <script src="{% static 'js/wysihtml5-0.3.0.js' %}"></script>
+    <script src="{% static 'js/jquery-latest.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.datepicker.js' %}"></script>
+    <script src="{% static 'js/jquery.uniform.min.js' %}"></script>
+    <script src="{% static 'js/select2.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+
+    <!-- call this page plugins -->
+    <script type="text/javascript">
+        $(function () {
+
+            // add uniform plugin styles to html elements
+            $("input:checkbox, input:radio").uniform();
+
+            // select2 plugin for select elements
+            $(".select2").select2({
+                placeholder: "Select a State"
+            });
+
+            // datepicker plugin
+            $('.input-datepicker').datepicker().on('changeDate', function () {
+                $(this).datepicker('hide');
+            });
+
+            $('.nav-tabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            })
+        });
+    </script>
 
 </body>
 

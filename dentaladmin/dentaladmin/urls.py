@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from auth import views as auth_views
 from users import views as users_views
+from patients import views as patients_views
 
 
 urlpatterns = [
@@ -30,4 +31,10 @@ urlpatterns = [
     url(r'^users/create/$', users_views.create_user, name='create_user'),
     url(r'^users/edit/(?P<username>\w+)/$', users_views.edit_user, name='edit_user'),
     url(r'^users/delete/(?P<username>\w+)/$', users_views.delete_user, name='delete_user'),
+    # Patients
+    url(r'^patients/$', patients_views.index, name='patients'),
+    url(r'^patients/create/$', patients_views.create_patient, name='create_patient'),
+    url(r'^patients/edit/(?P<dni>\d+)/$', patients_views.edit_patient, name='edit_patient'),
+    url(r'^patients/check/(?P<dni>\d+)/$', patients_views.check_patient, name='check_patient'),
+    url(r'^patients/delete/(?P<dni>\d+)/$', patients_views.delete_patient, name='delete_patient'),
 ]

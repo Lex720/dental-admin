@@ -12,7 +12,7 @@ class Auth:
         self.users = self.db.users
 
     def login(self, username, password):
-        query = {'username': username}
+        query = {'username': username, 'status': 1}
         user = self.users.find_one(query)
         if not user:
             return None

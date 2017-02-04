@@ -1,7 +1,7 @@
 i.tool {
   height: 14px;
   width: 14px;
-  background: url("../../img/btn-tool.png") no-repeat;
+  background: url("../../img/general/btn-tool.png") no-repeat;
   display: inline-block;
   margin-top: 1px;
   *margin-right: .3em;
@@ -10,7 +10,7 @@ i.tool {
 }
 
 i.arrow-down {
-  background: url("../../img/ico-arrow-black.png") no-repeat;
+  background: url("../../img/general/ico-arrow-black.png") no-repeat;
   width: 9px;
   height: 6px;
   display: inline-block;
@@ -21,7 +21,7 @@ i.arrow-down {
 }
 
 i.shuffle {
-  background: url("../../img/btn-shuffle.png") no-repeat;
+  background: url("../../img/general/btn-shuffle.png") no-repeat;
   display: inline-block;
   height: 13px;
   width: 18px;
@@ -32,7 +32,7 @@ i.shuffle {
 }
 
 i.setting {
-  background: url("../../img/btn-setting.png") no-repeat;
+  background: url("../../img/general/btn-setting.png") no-repeat;
   display: inline-block;
   height: 16px;
   width: 16px;
@@ -43,7 +43,7 @@ i.setting {
 }
 
 i.attach {
-  background: url("../../img/btn-attach.png") no-repeat;
+  background: url("../../img/general/btn-attach.png") no-repeat;
   display: inline-block;
   height: 16px;
   width: 16px;
@@ -54,7 +54,7 @@ i.attach {
 }
 
 i.ico-phone {
-  background: url("../../img/ico-phone.png") no-repeat;
+  background: url("../../img/general/ico-phone.png") no-repeat;
   height: 18px;
   width: 13px;
   margin-top: 1px;
@@ -64,7 +64,7 @@ i.ico-phone {
 }
 
 i.ico-mail {
-  background: url("../../img/ico-mail.png") no-repeat;
+  background: url("../../img/general/ico-mail.png") no-repeat;
   height: 11px;
   width: 17px;
   margin-top: 1px;
@@ -74,7 +74,7 @@ i.ico-mail {
 }
 
 i.gallery-edit {
-  background: url("../../img/ico-gallery-edit.png") no-repeat;
+  background: url("../../img/general/ico-gallery-edit.png") no-repeat;
   height: 20px;
   width: 20px;
   margin-top: 1px;
@@ -84,7 +84,7 @@ i.gallery-edit {
 }
 
 i.gallery-trash {
-  background: url("../../img/ico-gallery-trash.png") no-repeat;
+  background: url("../../img/general/ico-gallery-trash.png") no-repeat;
   height: 19px;
   width: 17px;
   margin-top: 1px;
@@ -94,7 +94,7 @@ i.gallery-trash {
 }
 
 i.table-edit {
-  background: url("../../img/ico-table-new.png") no-repeat;
+  background: url("../../img/general/ico-table-new.png") no-repeat;
   width: 14px;
   height: 13px;
   display: inline-block;
@@ -105,7 +105,7 @@ i.table-edit {
 }
 
 i.table-settings {
-  background: url("../../img/ico-table-edit.png") no-repeat;
+  background: url("../../img/general/ico-table-edit.png") no-repeat;
   width: 16px;
   height: 16px;
   display: inline-block;
@@ -114,7 +114,7 @@ i.table-settings {
 }
 
 i.table-delete {
-  background: url("../../img/ico-table-delete.png") no-repeat;
+  background: url("../../img/general/ico-table-delete.png") no-repeat;
   width: 12px;
   height: 12px;
   display: inline-block;

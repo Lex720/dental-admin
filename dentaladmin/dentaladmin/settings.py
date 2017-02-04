@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'patients',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +64,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates/'),
             os.path.join(BASE_DIR, 'auth/templates/'),
             os.path.join(BASE_DIR, 'users/templates/'),
+            os.path.join(BASE_DIR, 'patients/templates/'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {

@@ -8,42 +8,47 @@
     <link rel="stylesheet" href="{% static 'css/compiled/user-list.css' %}" type="text/css" media="screen" />
 {% endblock %}
 
-{% block title %} Users List {% endblock %}
+{% block title %} Patients List {% endblock %}
 
-{% block active-users %} class="active" {% endblock %}
+{% block active-patients %} class="active" {% endblock %}
 
 {% block content %}
     <div id="pad-wrapper" class="users-list">
         <div class="row header">
-            <h3>Users</h3>
+            <h3>Patients</h3>
             <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
-                <form class="form-horizontal" role="form" action="{% url 'users' %}" method="get">
+                <form class="form-horizontal" role="form" action="{% url 'patients' %}" method="get">
                     {% csrf_token %}
-                    <input type="text" class="col-md-5 search" name="search" placeholder="Type a user's name...">
+                    <input type="text" class="col-md-5 search" name="search" placeholder="Type a patients's name...">
                 </form>
-                <a href="{% url 'create_user' %}" class="btn-flat success pull-right">
-                    <span>&#43;</span>
-                    NEW USER
-                </a>
+                {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
+                    <a href="{% url 'create_patient' %}" class="btn-flat success pull-right">
+                        <span>&#43;</span>
+                        NEW PATIENT
+                    </a>
+                {% endif %}
             </div>
         </div>
-        <!-- Users table -->
+        <!-- Patients table -->
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th class="col-md-3">
-                                Name
+                            <th class="col-md-1">
+                                DNI
                             </th>
-                            <th class="col-md-3">
-                                <span class="line"></span>Username
+                            <th class="col-md-2">
+                                <span class="line"></span>Name
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Email
                             </th>
                             <th class="col-md-2">
                                 <span class="line"></span>Phone
                             </th>
-                            <th class="col-md-2">
-                                <span class="line"></span>Email
+                            <th class="col-md-3">
+                                <span class="line"></span>Address
                             </th>
                             <th class="col-md-2">
                                 <span class="line"></span>Action
@@ -52,32 +57,36 @@
                     </thead>
                     <tbody>
                     <!-- row -->
-                    {% if users != None %}
-                        {% for user in users %}
+                    {% if patients != None %}
+                        {% for patient in patients %}
                             <tr class="first">
                                 <td>
-                                    {% if user.pic != None %}
-                                        <img src="{% static user.pic %}" alt="contact" class="img-circle avatar hidden-phone" />
-                                    {% else %}
-                                        <img src="{% static 'img/contact-img.png' %}" alt="contact" class="img-circle avatar hidden-phone" />
+                                    <a class="name">{{ patient.dni }}</a>
+                                </td>
+                                <td>
+                                    {{ patient.name }}
+                                </td>
+                                <td>
+                                    <a href="mailto:{{ patient.email }}">{{ patient.email }}</a>
+                                </td>
+                                <td>
+                                    {{ patient.phone }}
+                                </td>
+                                <td>
+                                    {{ patient.address }}
+                                </td>
+                                <td>
+                                    {% if auth_user.role == 'admin' or auth_user.role == 'doctor'  %}
+                                        <a href="{% url 'check_patient' patient.dni %}">Check</a>
+                                        &nbsp;
                                     {% endif %}
 
-                                    <a class="name">{{ user.name }}</a>
-                                    <span class="subtext">{{ user.role|upper }}</span>
-                                </td>
-                                <td>
-                                    {{ user.username }}
-                                </td>
-                                <td>
-                                    {{ user.phone }}
-                                </td>
-                                <td>
-                                    <a href="mailto:{{ user.email }}">{{ user.email }}</a>
-                                </td>
-                                <td>
-                                    <a href="{% url 'edit_user' user.username %}">Edit</a>
-                                    &nbsp;
-                                    <a href="{% url 'delete_user' user.username %}">Delete</a>
+                                    {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
+                                        <a href="{% url 'edit_patient' patient.dni %}">Edit</a>
+                                        &nbsp;
+                                        <a href="{% url 'delete_patient' patient.dni %}">Delete</a>
+                                        &nbsp;
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -90,8 +99,8 @@
                 </table>
             </div>
         </div>
-        <!-- end users table -->
-        {% if users != None %}
+        <!-- end patients table -->
+        {% if patients != None %}
             <!-- Paginator -->
             <ul class="pagination pull-right">
                 {% if pages.has_previous %}

@@ -1,0 +1,162 @@
+{% extends '_base.html' %}
+
+<!-- Static files django label -->
+{% load static %}
+
+<!-- this page specific styles -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/compiled/user-profile.css' %}" type="text/css" media="screen"
+          xmlns="http://www.w3.org/1999/html"/>
+    <link rel="stylesheet" href="{% static 'css/compiled/ui-elements.css' %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Create Patient {% endblock %}
+
+{% block active-patients %} class="active" {% endblock %}
+
+{% block content %}
+    <div id="pad-wrapper" class="user-profile">
+            <!-- header -->
+            <div class="row header" style="margin-bottom: 20px;">
+                <div class="col-md-8">
+                    <h3 class="name">{{ patient.name }}</h3>
+                    <span class="area">{{ patient.dni }}</span>
+                </div>
+            </div>
+
+            <div class="row profile">
+                <!-- bio, new note & orders column -->
+                <div class="col-md-9 bio">
+                    <div class="profile-box">
+                        <!-- new comment form -->
+                        <div class="col-md-12 section comment" style="margin-top: 0; margin-bottom: 100px;">
+                            <h6>Add a quick note</h6>
+                            <p>Add a note about this user to keep a history of your interactions.</p>
+                            <label for="notes" ></label>
+                            <textarea name="notes" id="notes">{{ patient.notes }}</textarea>
+                            <div class="col-md-12 submit-box pull-right">
+                                <input type="submit" class="btn-glow primary" value="Update">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- side address column -->
+                <div class="col-md-3 col-xs-12 address pull-right">
+                    <h6>Address</h6>
+                    <iframe width="300" height="133" scrolling="no" src="https://maps.google.com.mx/?ie=UTF8&amp;t=m&amp;ll=19.715081,-155.071421&amp;spn=0.010746,0.025749&amp;z=14&amp;output=embed"></iframe>
+                    <ul>
+                        <li>{{ patient.address }}</li>
+                        <li class="ico-li">
+                            <i class="ico-phone"></i>
+                            {{ patient.phone }}
+                        </li>
+                         <li class="ico-li">
+                            <i class="ico-mail"></i>
+                            <a href="mailto:{{ patient.email }}">{{ patient.email }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row profile" style="margin-top: 50px;">
+                <div class="">
+                    <form class="form-horizontal" role="form" action="{% url 'create_patient' %}" method="post">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-1">
+                                        Date
+                                    </th>
+                                    <th class="col-md-2">
+                                        <span class="line"></span>
+                                        Doctor
+                                    </th>
+                                    <th class="col-md-2">
+                                        <span class="line"></span>
+                                        Tooth's
+                                    </th>
+                                    <th class="col-md-3">
+                                        <span class="line"></span>
+                                        Diagnostic
+                                    </th>
+                                    <th class="col-md-3">
+                                        <span class="line"></span>
+                                        Treatment
+                                    </th>
+                                    <th class="col-md-1">
+                                        <span class="line"></span>
+                                        Status
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- row -->
+                                <tr class="first">
+                                    <td>
+                                        03/01/2017
+                                    </td>
+                                    <td>
+                                        John Smith
+                                    </td>
+                                    <td>
+                                        Test
+                                    </td>
+                                    <td>
+                                        Test
+                                    </td>
+                                    <td>
+                                        Test
+                                    </td>
+                                    <td>
+                                        <span class="label label-info">Pending</span>
+                                    </td>
+                                </tr>
+                                <!-- row -->
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control inline-input" name="date" id="date" placeholder="" value="{% now "m/d/Y" %}" readonly required>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control inline-input" name="doctor" id="doctor" placeholder="" value="{{ auth_user.username|title }}" readonly required>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control inline-input" name="tooths" id="tooths" placeholder="Tooth's" required>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control inline-input" name="diagnostic" id="diagnostic" placeholder="Diagnostic" required>
+                                    </td>
+                                    <td>
+                                        <div class="ui-select" style="width: 90%">
+                                            <select id="treatment" name="treatment" required>
+                                                <option value="">Select</option>
+                                                <option value="service1">Service1</option>
+                                                <option value="service2">Service2</option>
+                                            </select>
+                                            <label for="treatment"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="ui-select" style="width: 90%">
+                                            <select id="status" name="status" required>
+                                                <option value="">Select</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="completed">Completed</option>
+                                            </select>
+                                            <label for="status"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-1 submit-box pull-right">
+                                <input type="submit" class="btn-glow primary" value="Update">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+{% endblock %}

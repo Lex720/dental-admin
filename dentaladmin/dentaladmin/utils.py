@@ -7,7 +7,6 @@ import string
 
 client = pymongo.MongoClient('db', 27017)
 database_connection = client.dentaladmin
-
 database_errors = pymongo.errors
 
 

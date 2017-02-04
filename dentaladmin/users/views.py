@@ -17,6 +17,9 @@ def index(request, search=None):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('/login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     if 'search' in request.GET:
         search = request.GET['search']
     users = Users.find_users(search)
@@ -38,6 +41,9 @@ def create_user(request):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('/login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     if request.method == 'GET':
         return render(request, 'users/create.html', {'auth_user': auth_user})
     else:
@@ -77,6 +83,9 @@ def edit_user(request, username):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('/login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     if request.method == 'GET':
         user = Users.find_user(username)
         if user is None:
@@ -110,9 +119,13 @@ def edit_user(request, username):
 
 
 def delete_user(request, username):
-    if Sessions.validate_auth(request) is None:
+    auth_user = Sessions.validate_auth(request)
+    if auth_user is None:
         error(request, "You must log in first")
         return redirect('/login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     result = Users.delete_user(username)
     response = redirect('/users')
     if result is not True:

@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
@@ -106,24 +107,53 @@ def check_patient(request, dni):
             return redirect('/patients')
         return render(request, 'patients/check.html', {'auth_user': auth_user, 'patient': patient})
     else:
-        dni = request.POST['dni']
-        name = request.POST['name']
-        date_of_birth = request.POST['date_of_birth']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        address = request.POST['address']
-        visit_reason = request.POST['visit_reason']
+        notes = request.POST['notes']
         form = validate_form(request.POST)
         if form is not True:
             error(request, "There is a problem with your info, please check")
-            return redirect(edit_patient, dni=dni)
-        result = Patients.edit_patient(dni, name, date_of_birth, email, phone, address, visit_reason)
+            return redirect(check_patient, dni=dni)
+        result = Patients.edit_patient_notes(dni, notes)
         if result is not True:
             error(request, result)
-            return redirect(edit_patient, dni=dni)
-        response = redirect('/patients')
-        success(request, "Patient updated successfully")
-        return response
+        else:
+            success(request, "Patient updated successfully")
+        return redirect(check_patient, dni=dni)
+
+
+def create_diagnostic(request, dni):
+    auth_user = Sessions.validate_auth(request)
+    if auth_user is None:
+        error(request, "You must log in first")
+        return redirect('/login')
+    if request.method == 'POST':
+        date = request.POST['date']
+        doctor = request.POST['doctor']
+        tooths = request.POST['tooths']
+        diagnostic = request.POST['diagnostic']
+        form = validate_form(request.POST)
+        if form is not True:
+            error(request, "There is a problem with your info, please check")
+            return redirect(check_patient, dni=dni)
+        result = Patients.add_diagnostic(dni, date, doctor, tooths, diagnostic)
+        if result is not True:
+            error(request, result)
+        else:
+            success(request, "Patient updated successfully")
+        return redirect(check_patient, dni=dni)
+
+
+def delete_diagnostic(request, dni, code):
+    auth_user = Sessions.validate_auth(request)
+    if auth_user is None:
+        error(request, "You must log in first")
+        return redirect('/login')
+    if request.method == 'GET':
+        result = Patients.delete_diagnostic(dni, code)
+        if result is not True:
+            error(request, result)
+        else:
+            success(request, "Patient updated successfully")
+        return redirect(check_patient, dni=dni)
 
 
 def delete_patient(request, dni):

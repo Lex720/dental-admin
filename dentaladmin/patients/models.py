@@ -57,6 +57,48 @@ class Patient:
             return "Oops, patient not updated"
         return True
 
+    def edit_patient_notes(self, dni, notes):
+        patient = self.find_patient(dni)
+        if patient is None:
+            return "Patient not found"
+        try:
+            self.patients.update_one({'dni': dni}, {'$set': {'notes': notes}})
+        except errors.OperationFailure:
+            return "Oops, patient not updated"
+        return True
+
+    def add_diagnostic(self, dni, date, doctor, tooths, diagnostic, status=0):
+        patient = self.find_patient(dni)
+        cursor = self.patients.aggregate([
+            {'$match': {'dni': dni}},
+            {'$unwind': '$clinic_history'},
+            {'$group': {'_id': '', 'count': {'$sum': 1}}}
+        ])
+        result = list(cursor)
+        if result:
+            code = result[0]['count'] + 1
+        else:
+            code = 1
+        document = {'code': code, 'date': date, 'doctor': doctor, 'tooths': tooths, 'diagnostic': diagnostic,
+                    'status': status}
+        if patient is None:
+            return "Patient not found"
+        try:
+            self.patients.update_one({'dni': dni}, {'$push': {'clinic_history': document}})
+        except errors.OperationFailure:
+            return "Oops, patient not updated"
+        return True
+
+    def delete_diagnostic(self, dni, code):
+        patient = self.patients.find_one({'dni': dni})
+        if patient is None:
+            return "Patient not found"
+        try:
+            self.patients.update({'dni': dni}, {'$pull': {'clinic_history': {'code': int(code)}}})
+        except errors.OperationFailure:
+            return "Oops, patient not updated"
+        return True
+
     def delete_patient(self, dni):
         patient = self.find_patient(dni)
         if patient is None:

@@ -18,7 +18,6 @@ from auth import views as auth_views
 from users import views as users_views
 from patients import views as patients_views
 
-
 urlpatterns = [
     # Dashboard
     url(r'^$', auth_views.dashboard, name="dashboard"),
@@ -37,4 +36,6 @@ urlpatterns = [
     url(r'^patients/edit/(?P<dni>\d+)/$', patients_views.edit_patient, name='edit_patient'),
     url(r'^patients/check/(?P<dni>\d+)/$', patients_views.check_patient, name='check_patient'),
     url(r'^patients/delete/(?P<dni>\d+)/$', patients_views.delete_patient, name='delete_patient'),
+    url(r'^patients/diagnostic/(?P<dni>\d+)/$', patients_views.create_diagnostic, name='create_diagnostic'),
+    url(r'^patients/diagnostic/(?P<dni>\d+)/(?P<code>\d+)/$', patients_views.delete_diagnostic, name='delete_diagnostic'),
 ]

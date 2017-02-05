@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'patients',
+    'apps.users',
+    'apps.patients',
+    'apps.treatment_sequence'
 ]
 
 MIDDLEWARE = [
@@ -62,9 +63,10 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates/'),
-            os.path.join(BASE_DIR, 'auth/templates/'),
-            os.path.join(BASE_DIR, 'users/templates/'),
-            os.path.join(BASE_DIR, 'patients/templates/'),
+            os.path.join(BASE_DIR, 'apps/auth/templates/'),
+            os.path.join(BASE_DIR, 'apps/users/templates/'),
+            os.path.join(BASE_DIR, 'apps/patients/templates/'),
+            os.path.join(BASE_DIR, 'apps/treatment_sequence/templates/'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -84,14 +86,14 @@ WSGI_APPLICATION = 'dentaladmin.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '_database/db.sqlite3'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, '_database/db.sqlite3'),
+    #     'USER': '',
+    #     'PASSWORD': '',
+    #     'HOST': '',
+    #     'PORT': '',
+    # }
 }
 
 # Password validation

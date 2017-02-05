@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
+
 from .models import Auth, Session
-from users.models import User
+from apps.users.models import User
 from dentaladmin.utils import validate_form
 
 Auths = Auth()

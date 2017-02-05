@@ -1,7 +1,8 @@
 /.idea
 /__pycache__
 /dentaladmin/__pycache__
-/auth/__pycache__
-/users/__pycache__
-/patients/__pycache__
+/apps/auth/__pycache__
+/apps/users/__pycache__
+/apps/patients/__pycache__
+/apps/treatment_sequence/__pycache__
 /static/img/avatars/

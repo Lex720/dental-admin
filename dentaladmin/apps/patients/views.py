@@ -2,7 +2,8 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
-from auth.models import Session
+
+from apps.auth.models import Session
 from .models import Patient
 from dentaladmin.utils import validate_form
 

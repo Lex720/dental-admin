@@ -4,10 +4,12 @@ from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
 
 from apps.auth.models import Session
+from apps.treatment_sequences.models import Sequence
 from .models import Patient
 from dentaladmin.utils import validate_form
 
 Sessions = Session()
+Sequences = Sequence()
 Patients = Patient()
 
 
@@ -162,6 +164,7 @@ def delete_patient(request, dni):
         error(request, "You must log in first")
         return redirect('login')
     result = Patients.delete_patient(dni)
+    Sequences.cancel_sequences_from_patient(dni)
     response = redirect('patients')
     if result is not True:
         error(request, result)

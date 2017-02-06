@@ -60,7 +60,9 @@ def create_user(request):
             pic = upload_file_verification(request.FILES['file'], username)
             if pic is False:
                 error(request, "The image format must be jpg, png or bmp")
-                return redirect('edit_user', username=username)
+                return render(request, 'users/create.html',
+                          {'auth_user': auth_user, 'name': name, 'email': email, 'phone': phone, 'role': role,
+                           'username': username})
         form = validate_form(request.POST)
         if form is not True:
             error(request, "There is a problem with your info, please check")

@@ -73,20 +73,27 @@
                                     {{ sequence.patient }}
                                 </td>
                                 <td>
-                                    {% if sequence.status == 0 %}
-                                        <span class="label label-info">Open</span>
-                                    {% else %}
-                                        <span class="label label-success">Closed</span>
-                                    {% endif %}
+                                    {% if sequence.status == 0 %}<span class="label label-danger">Canceled</span>{% endif %}
+                                    {% if sequence.status == 1 %}<span class="label label-info">Open</span>{% endif %}
+                                    {% if sequence.status == 2 %}<span class="label label-warning">In Progress</span>{% endif %}
+                                    {% if sequence.status == 3 %}<span class="label label-success">Closed</span>{% endif %}
+
                                 </td>
                                 <td>
-                                    {% if sequence.status == 0 %}
-                                        {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
-                                            <a href="{% url 'edit_sequence' sequence.code %}">Edit</a>
+                                    {% if sequence.status == 1 or sequence.status == 2 %}
+                                        {% if auth_user.role == 'admin' or auth_user.role == 'doctor'  %}
+                                            <a href="{% url 'process_sequence' sequence.code %}">Process</a>
                                             &nbsp;
                                         {% endif %}
-                                    {% else %}
-                                        {% if auth_user.role == 'admin' or auth_user.role == 'doctor'  %}
+                                    {% endif %}
+                                    {% if sequence.status == 1 %}
+                                        {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
+                                            <a href="{% url 'cancel_sequence' sequence.code %}">Cancel</a>
+                                            &nbsp;
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if sequence.status == 3 %}
+                                        {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
                                             <a href="{% url 'invoice_sequence' sequence.code %}">Invoice</a>
                                             &nbsp;
                                         {% endif %}

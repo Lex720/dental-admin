@@ -44,7 +44,8 @@ urlpatterns = [
     # Treatment sequence
     url(r'^sequences/$', sequences_views.index, name='sequences'),
     url(r'^sequences/create/$', sequences_views.create_sequence, name='create_sequence'),
-    url(r'^sequences/edit/(?P<code>\d+)/$', sequences_views.edit_sequence, name='edit_sequence'),
+    url(r'^sequences/process/(?P<code>\d+)/$', sequences_views.process_sequence, name='process_sequence'),
     url(r'^sequences/close/(?P<code>\d+)/$', sequences_views.close_sequence, name='close_sequence'),
+    url(r'^sequences/cancel/(?P<code>\d+)/$', sequences_views.cancel_sequence, name='cancel_sequence'),
     url(r'^sequences/invoice/(?P<code>\d+)/$', sequences_views.invoice_sequence, name='invoice_sequence'),
 ]

@@ -26,6 +26,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="direct_appointment" id="direct_appointment" value="1">
                     <input type="hidden" name="date" id="date" value="{% now "m/d/Y" %}">
+                    <input type="hidden" name="shift" id="shift" value="{% now "A" %}">
                     <input type="hidden" name="doctor_username" id="doctor_username" value="{{ auth_user.username }}">
                     <input type="hidden" name="patient_dni" id="patient_dni" value="{{ patient.dni }}">
                     <button class="btn-flat icon large pull-right edit">

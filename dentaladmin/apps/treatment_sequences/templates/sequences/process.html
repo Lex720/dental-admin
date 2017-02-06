@@ -25,13 +25,13 @@
         </div>
 
         <div class="row" style="margin-top: 50px;">
-            <form class="form-horizontal" role="form" action="{% url 'edit_sequence' sequence.code %}" method="post">
+            <form class="form-horizontal" role="form" action="{% url 'process_sequence' sequence.code %}" method="post">
                 {% csrf_token %}
                 <div class="col-md-12">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label for="diagnostic_code" class="col-md-4 control-label">Patient's diagnostics</label>
-                            <div class="col-md-8">
+                            <label for="diagnostic_code" class="col-md-5 control-label">Patient's diagnostics</label>
+                            <div class="col-md-7">
                                 <div class="ui-select" style="width: 100%;">
                                     <select id="diagnostic_code" name="diagnostic_code" required>
                                         <option value="">Select</option>
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="treatment_code" class="col-md-4 control-label">Clinic treatments</label>
                             <div class="col-md-8">
@@ -60,8 +60,29 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
+                            <label for="quantity" class="col-md-1 control-label">-</label>
+                            <div class="col-md-10">
+                                <div class="ui-select" style="width: 100%;">
+                                    <select id="quantity" name="quantity" required>
+                                        <option value="">Quantity</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <button type="submit" class="btn-glow primary">Create</button>
+                                <button type="submit" class="btn-glow primary">Add</button>
                                 <span> &nbsp; OR</span>
                                 <input type="reset" value="Clean" class="reset">
                             </div>
@@ -79,23 +100,27 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1">
-                                    Status
-                                </th>
-                                <th class="col-md-1">
-                                    <span class="line"></span>
                                     Date
                                 </th>
                                 <th class="col-md-2">
                                     <span class="line"></span>
-                                    Doctor
+                                    Tooth's
                                 </th>
                                 <th class="col-md-3">
                                     <span class="line"></span>
-                                    Tooth's
-                                </th>
-                                <th class="col-md-4">
-                                    <span class="line"></span>
                                     Diagnostic
+                                </th>
+                                <th class="col-md-3">
+                                    <span class="line"></span>
+                                    Treatment
+                                </th>
+                                 <th class="col-md-1">
+                                    <span class="line"></span>
+                                    Quantity
+                                </th>
+                                <th class="col-md-1">
+                                    <span class="line"></span>
+                                    Subtotal
                                 </th>
                                 <th class="col-md-1">
                                     <span class="line"></span>
@@ -109,17 +134,7 @@
                                     <!-- results row -->
                                     <tr class="first">
                                         <td>
-                                            {% if treatment.status == 0 %}
-                                                <span class="label label-info">Pending</span>
-                                            {% else %}
-                                                <span class="label label-success">Completed</span>
-                                            {% endif %}
-                                        </td>
-                                        <td>
                                             {{ treatment.date }}
-                                        </td>
-                                        <td>
-                                            {{ treatment.doctor }}
                                         </td>
                                         <td>
                                             {{ treatment.tooths }}
@@ -128,7 +143,16 @@
                                             {{ treatment.diagnostic }}
                                         </td>
                                         <td>
-                                            <a href="{% url 'delete_diagnostic' sequence.code treatment.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
+                                            {{ treatment.treatment }}
+                                        </td>
+                                        <td>
+                                            {{ treatment.quantity }}
+                                        </td>
+                                        <td>
+                                            {{ treatment.subtotal }}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'delete_sequence_treatment' sequence.code treatment.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
                                                 <i class="icon-trash"></i>
                                             </a>
                                         </td>
@@ -139,27 +163,6 @@
                                     <td colspan="4">There is no records</td>
                                 </tr>
                             {% endif %}
-                            <!-- new item row -->
-                            <tr>
-                                <td>
-                                    <input type="text" class="form-control inline-input" name="status" id="status" placeholder="" value="Pending" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control inline-input" name="date" id="date" placeholder="" value="{% now "m/d/Y" %}" readonly required>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control inline-input" name="doctor" id="doctor" placeholder="" value="{{ auth_user.username }}" readonly required>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control inline-input" name="tooths" id="tooths" placeholder="Tooth's" required>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control inline-input" name="diagnostic" id="diagnostic" placeholder="Diagnostic" required>
-                                </td>
-                                <td>
-                                    <input type="submit" class="btn-glow primary" value="Add">
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </form>

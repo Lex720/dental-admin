@@ -8,47 +8,47 @@
     <link rel="stylesheet" href="{% static 'css/compiled/user-list.css' %}" type="text/css" media="screen" />
 {% endblock %}
 
-{% block title %} Patients List {% endblock %}
+{% block title %} Treatment Sequences List {% endblock %}
 
-{% block active-patients %} class="active" {% endblock %}
+{% block active-sequences %} class="active" {% endblock %}
 
 {% block content %}
     <div id="pad-wrapper" class="users-list">
         <div class="row header">
-            <h3>Patients</h3>
-            <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
-                <form class="form-horizontal" role="form" action="{% url 'patients' %}" method="get">
+            <h3>Treatment Sequences</h3>
+            <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
+                <form class="form-horizontal" role="form" action="{% url 'sequences' %}" method="get">
                     {% csrf_token %}
-                    <input type="text" class="col-md-5 search" name="search" placeholder="Type a patients's name...">
+                    <input type="text" class="col-md-5 search" name="search" placeholder="Type a sequences's code...">
                 </form>
                 {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
-                    <a href="{% url 'create_patient' %}" class="btn-flat success pull-right">
+                    <a href="{% url 'create_sequence' %}" class="btn-flat success pull-right">
                         <span>&#43;</span>
-                        NEW PATIENT
+                        NEW TREATMENT SEQUENCE
                     </a>
                 {% endif %}
             </div>
         </div>
-        <!-- Patients table -->
+        <!-- Treatment Sequences table -->
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th class="col-md-1">
-                                DNI
+                                Code
                             </th>
                             <th class="col-md-2">
-                                <span class="line"></span>Name
+                                <span class="line"></span>Date
                             </th>
                             <th class="col-md-2">
-                                <span class="line"></span>Email
-                            </th>
-                            <th class="col-md-2">
-                                <span class="line"></span>Phone
+                                <span class="line"></span>Doctor
                             </th>
                             <th class="col-md-3">
-                                <span class="line"></span>Address
+                                <span class="line"></span>Patient
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Status
                             </th>
                             <th class="col-md-2">
                                 <span class="line"></span>Action
@@ -57,35 +57,39 @@
                     </thead>
                     <tbody>
                     <!-- row -->
-                    {% if patients != None %}
-                        {% for patient in patients %}
+                    {% if sequences != None %}
+                        {% for sequence in sequences %}
                             <tr class="first">
                                 <td>
-                                    <a class="name">{{ patient.dni }}</a>
+                                    <a class="name">{{ sequence.code }}</a>
                                 </td>
                                 <td>
-                                    {{ patient.name }}
+                                    {{ sequence.date }}
                                 </td>
                                 <td>
-                                    <a href="mailto:{{ patient.email }}">{{ patient.email }}</a>
+                                    {{ sequence.doctor }}
                                 </td>
                                 <td>
-                                    {{ patient.phone }}
+                                    {{ sequence.patient }}
                                 </td>
                                 <td>
-                                    {{ patient.address }}
-                                </td>
-                                <td>
-                                    {% if auth_user.role == 'admin' or auth_user.role == 'doctor'  %}
-                                        <a href="{% url 'check_patient' patient.dni %}">Check</a>
-                                        &nbsp;
+                                    {% if sequence.status == 0 %}
+                                        <span class="label label-info">Open</span>
+                                    {% else %}
+                                        <span class="label label-success">Closed</span>
                                     {% endif %}
-
-                                    {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
-                                        <a href="{% url 'edit_patient' patient.dni %}">Edit</a>
-                                        &nbsp;
-                                        <a href="{% url 'delete_patient' patient.dni %}">Delete</a>
-                                        &nbsp;
+                                </td>
+                                <td>
+                                    {% if sequence.status == 0 %}
+                                        {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
+                                            <a href="{% url 'edit_sequence' sequence.code %}">Edit</a>
+                                            &nbsp;
+                                        {% endif %}
+                                    {% else %}
+                                        {% if auth_user.role == 'admin' or auth_user.role == 'doctor'  %}
+                                            <a href="{% url 'invoice_sequence' sequence.code %}">Invoice</a>
+                                            &nbsp;
+                                        {% endif %}
                                     {% endif %}
                                 </td>
                             </tr>
@@ -99,8 +103,8 @@
                 </table>
             </div>
         </div>
-        <!-- end patients table -->
-        {% if patients != None %}
+        <!-- end sequences table -->
+        {% if sequences != None %}
             <!-- Paginator -->
             <ul class="pagination pull-right">
                 {% if pages.has_previous %}

@@ -18,6 +18,7 @@ from django.conf.urls import url
 from apps.auth import views as auth_views
 from apps.users import views as users_views
 from apps.patients import views as patients_views
+from apps.treatment_sequences import views as sequences_views
 
 urlpatterns = [
     # Dashboard
@@ -40,4 +41,10 @@ urlpatterns = [
     url(r'^patients/diagnostic/(?P<dni>\d+)/$', patients_views.create_diagnostic, name='create_diagnostic'),
     url(r'^patients/diagnostic/(?P<dni>\d+)/(?P<code>\d+)/$', patients_views.delete_diagnostic,
         name='delete_diagnostic'),
+    # Treatment sequence
+    url(r'^sequences/$', sequences_views.index, name='sequences'),
+    url(r'^sequences/create/$', sequences_views.create_sequence, name='create_sequence'),
+    url(r'^sequences/edit/(?P<code>\d+)/$', sequences_views.edit_sequence, name='edit_sequence'),
+    url(r'^sequences/close/(?P<code>\d+)/$', sequences_views.close_sequence, name='close_sequence'),
+    url(r'^sequences/invoice/(?P<code>\d+)/$', sequences_views.invoice_sequence, name='invoice_sequence'),
 ]

@@ -108,3 +108,11 @@ class Patient:
         except errors.OperationFailure:
             return "Oops, patient not deleted"
         return True
+
+    def list_patients(self, status=1):
+        query = {'status': status}
+        patients = self.patients.find(query)
+        count = patients.count()
+        if count > 0:
+            return patients
+        return None

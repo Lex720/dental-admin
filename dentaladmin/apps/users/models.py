@@ -70,3 +70,11 @@ class User:
         except errors.OperationFailure:
             return "Oops, user not deleted"
         return True
+
+    def list_users(self, role, status=1):
+        query = {'role': role, 'status': status}
+        users = self.users.find(query)
+        count = users.count()
+        if count > 0:
+            return users
+        return None

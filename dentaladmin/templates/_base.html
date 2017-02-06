@@ -96,6 +96,12 @@
                     <span>Patients</span>
                 </a>
             </li>
+            <li {% block active-sequences %}{% endblock %}>
+                <a href="{% url 'sequences' %}">
+                    <i class="icon-sitemap"></i>
+                    <span>Sequences</span>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- end sidebar -->

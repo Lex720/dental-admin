@@ -18,7 +18,7 @@ def index(request, search=None):
     auth_user = Sessions.validate_auth(request)
     if auth_user is None:
         error(request, "You must log in first")
-        return redirect('/login')
+        return redirect('login')
     if auth_user['role'] != 'admin':
         error(request, "You don't have permissions for this module")
         return redirect('/')
@@ -42,7 +42,7 @@ def create_user(request):
     auth_user = Sessions.validate_auth(request)
     if auth_user is None:
         error(request, "You must log in first")
-        return redirect('/login')
+        return redirect('login')
     if auth_user['role'] != 'admin':
         error(request, "You don't have permissions for this module")
         return redirect('/')
@@ -60,7 +60,7 @@ def create_user(request):
             pic = upload_file_verification(request.FILES['file'], username)
             if pic is False:
                 error(request, "The image format must be jpg, png or bmp")
-                return redirect(edit_user, username=username)
+                return redirect('edit_user', username=username)
         form = validate_form(request.POST)
         if form is not True:
             error(request, "There is a problem with your info, please check")
@@ -76,7 +76,7 @@ def create_user(request):
         if pic is not None:
             upload_file(pic, request.FILES['file'])
         success(request, "User registered successfully")
-        response = redirect('/users')
+        response = redirect('users')
         return response
 
 
@@ -84,7 +84,7 @@ def edit_user(request, username):
     auth_user = Sessions.validate_auth(request)
     if auth_user is None:
         error(request, "You must log in first")
-        return redirect('/login')
+        return redirect('login')
     if auth_user['role'] != 'admin':
         error(request, "You don't have permissions for this module")
         return redirect('/')
@@ -92,7 +92,7 @@ def edit_user(request, username):
         user = Users.find_user(username)
         if user is None:
             error(request, "This user does not exist")
-            return redirect('/users')
+            return redirect('users')
         return render(request, 'users/edit.html', {'auth_user': auth_user, 'user': user})
     else:
         name = request.POST['name']
@@ -104,18 +104,18 @@ def edit_user(request, username):
             pic = upload_file_verification(request.FILES['file'], username)
             if pic is False:
                 error(request, "The image format must be jpg, png or bmp")
-                return redirect(edit_user, username=username)
+                return redirect('edit_user', username=username)
         form = validate_form(request.POST)
         if form is not True:
             error(request, "There is a problem with your info, please check")
-            return redirect(edit_user, username=username)
+            return redirect('edit_user', username=username)
         result = Users.edit_user(username, name, email, phone, role, pic)
         if result is not True:
             error(request, result)
-            return redirect(edit_user, username=username)
+            return redirect('edit_user', username=username)
         if pic is not None:
             upload_file(pic, request.FILES['file'])
-        response = redirect('/users')
+        response = redirect('users')
         success(request, "User updated successfully")
         return response
 
@@ -124,12 +124,12 @@ def delete_user(request, username):
     auth_user = Sessions.validate_auth(request)
     if auth_user is None:
         error(request, "You must log in first")
-        return redirect('/login')
+        return redirect('login')
     if auth_user['role'] != 'admin':
         error(request, "You don't have permissions for this module")
         return redirect('/')
     result = Users.delete_user(username)
-    response = redirect('/users')
+    response = redirect('users')
     if result is not True:
         error(request, result)
         return response

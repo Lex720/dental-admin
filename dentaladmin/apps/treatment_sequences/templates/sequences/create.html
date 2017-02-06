@@ -1,0 +1,71 @@
+{% extends '_base.html' %}
+
+<!-- Static files django label -->
+{% load static %}
+
+<!-- this page specific styles -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/compiled/new-user.css' %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Create Treatment Sequence {% endblock %}
+
+{% block active-sequences %} class="active" {% endblock %}
+
+{% block content %}
+    <div id="pad-wrapper" class="new-user">
+        <div class="row header">
+            <div class="col-md-offset-4 col-md-4">
+                <h3 class="text-center">Create a new sequence</h3>
+            </div>
+        </div>
+        <div class="row form-wrapper">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" role="form" action="{% url 'create_sequence' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="date" class="col-md-2 control-label">Date</label>
+                        <div class="col-md-8">
+                            <input name="date" id="date" type="text" class="form-control input-datepicker" placeholder="Date" value="{% now "m/d/Y" %}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor_username" class="col-md-2 control-label">Doctor</label>
+                        <div class="col-md-8">
+                            <div class="ui-select" style="width: 100%;">
+                                <select id="doctor_username" name="doctor_username" required>
+                                    <option value="">Select</option>
+                                    {% for doctor in doctors %}
+                                        <option value="{{ doctor.username }}" {% if doctor_username == doctor.username %} {{ "selected" }} {% endif %}>{{ doctor.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient_dni" class="col-md-2 control-label">Patient</label>
+                        <div class="col-md-8">
+                            <div class="ui-select" style="width: 100%;">
+                                <select id="patient_dni" name="patient_dni" required>
+                                    <option value="">Select</option>
+                                    {% for patient in patients %}
+                                        <option value="{{ patient.dni }}" {% if patient_dni == patient.dni %} {{ "selected" }} {% endif %}>{{ patient.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" class="btn-glow primary">Create</button>
+                            <span> &nbsp; OR</span>
+                            <input type="reset" value="Clean" class="reset">
+                            <a href="{% url 'sequences' %}" class="btn-flat success pull-right">Back</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

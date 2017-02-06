@@ -33,7 +33,7 @@ def signup(request):
                           {'name': name, 'email': email, 'phone': phone, 'role': role,
                            'username': username})
         success(request, "Registered successfully")
-        response = redirect('/login')
+        response = redirect('login')
         return response
 
 
@@ -49,7 +49,7 @@ def login(request):
         user = Auths.login(username, password)
         if user is None:
             error(request, "User authentication error")
-            return redirect('/login')
+            return redirect('login')
         session_id = Sessions.start_session(user["username"], user["role"])
         response = redirect('/')
         response.set_cookie(key="session", value=session_id)
@@ -58,7 +58,7 @@ def login(request):
 
 
 def logout(request):
-    response = redirect('/login')
+    response = redirect('login')
     if "session" in request.COOKIES:
         session_id = request.COOKIES['session']
         Sessions.end_session(session_id)
@@ -71,5 +71,5 @@ def dashboard(request):
     auth_user = Sessions.validate_auth(request)
     if auth_user is None:
         error(request, "You must log in first")
-        return redirect('/login')
+        return redirect('login')
     return render(request, 'auth/dashboard.html', {'auth_user': auth_user})

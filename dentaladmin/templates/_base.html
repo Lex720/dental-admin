@@ -89,6 +89,12 @@
                         <span>Users</span>
                     </a>
                 </li>
+                <li {% block active-treatments %}{% endblock %}>
+                <a href="{% url 'treatments' %}">
+                    <i class="icon-plus"></i>
+                    <span>Treatments</span>
+                </a>
+            </li>
             {% endif %}
             <li {% block active-patients %}{% endblock %}>
                 <a href="{% url 'patients' %}">

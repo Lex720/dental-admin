@@ -93,7 +93,6 @@ def process_sequence(request, code):
         return render(request, 'sequences/process.html',
                       {'auth_user': auth_user, 'sequence': sequence, 'patient': patient})
     else:
-        code = request.POST['code']
         name = request.POST['name']
         date_of_birth = request.POST['date_of_birth']
         email = request.POST['email']

@@ -1,0 +1,104 @@
+{% extends '_base.html' %}
+
+<!-- Static files django label -->
+{% load static %}
+
+<!-- this page specific styles -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/compiled/user-list.css' %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Treatments List {% endblock %}
+
+{% block active-treatments %} class="active" {% endblock %}
+
+{% block content %}
+    <div id="pad-wrapper" class="users-list">
+        <div class="row header">
+            <h3>Treatments</h3>
+            <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
+                <form class="form-horizontal" role="form" action="{% url 'treatments' %}" method="get">
+                    {% csrf_token %}
+                    <input type="text" class="col-md-5 search" name="search" placeholder="Type a treatments's name...">
+                </form>
+                {% if auth_user.role == 'admin' or auth_user.role == 'office'  %}
+                    <a href="{% url 'create_treatment' %}" class="btn-flat success pull-right">
+                        <span>&#43;</span>
+                        NEW TREATMENT
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Treatments table -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">
+                                Code
+                            </th>
+                            <th class="col-md-5">
+                                <span class="line"></span>Name
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Price
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Status
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- row -->
+                    {% if treatments != None %}
+                        {% for treatment in treatments %}
+                            <tr class="first">
+                                <td>
+                                    <a class="name">{{ treatment.code }}</a>
+                                </td>
+                                <td>
+                                    {{ treatment.name }}
+                                </td>
+                                <td>
+                                    ${{ treatment.price }}
+                                </td>
+                                <td>
+                                    {% if treatment.status == 1 %}<span class="label label-success">Active</span>{% endif %}
+                                </td>
+                                <td>
+                                    <a href="{% url 'edit_treatment' treatment.code %}">Edit</a>
+                                    &nbsp;
+                                    <a href="{% url 'delete_treatment' treatment.code %}">Delete</a>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr class="first">
+                            <td colspan="5">There is no records</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- end treatments table -->
+        {% if treatments != None %}
+            <!-- Paginator -->
+            <ul class="pagination pull-right">
+                {% if pages.has_previous %}
+                    <li><a href="?page={{ pages.previous_page_number }}">&#8249;</a></li>
+                {% endif %}
+                <li class="active"><a>Page {{ pages.number }} of {{ pages.paginator.num_pages }}.</a></li>
+                {% if pages.has_next %}
+                    <li><a href="?page={{ pages.next_page_number }}">&#8250;</a></li>
+                {% endif %}
+            </ul>
+            <!-- End paginator -->
+        {% endif %}
+    </div>
+{% endblock %}

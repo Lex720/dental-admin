@@ -78,7 +78,6 @@ def edit_patient(request, dni):
             return redirect('patients')
         return render(request, 'patients/edit.html', {'auth_user': auth_user, 'patient': patient})
     else:
-        dni = request.POST['dni']
         name = request.POST['name']
         date_of_birth = request.POST['date_of_birth']
         email = request.POST['email']

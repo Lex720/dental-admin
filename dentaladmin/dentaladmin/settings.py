@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.users',
     'apps.patients',
+    'apps.treatments',
     'apps.treatment_sequences'
 ]
 
@@ -66,6 +67,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps/auth/templates/'),
             os.path.join(BASE_DIR, 'apps/users/templates/'),
             os.path.join(BASE_DIR, 'apps/patients/templates/'),
+            os.path.join(BASE_DIR, 'apps/treatments/templates/'),
             os.path.join(BASE_DIR, 'apps/treatment_sequences/templates/'),
         ],
         'APP_DIRS': True,

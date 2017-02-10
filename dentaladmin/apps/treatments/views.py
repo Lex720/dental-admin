@@ -16,6 +16,9 @@ def index(request, search=None):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     if 'search' in request.GET:
         search = request.GET['search']
     treatments = Treatments.find_treatments(search)
@@ -37,6 +40,9 @@ def create_treatment(request):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     if request.method == 'GET':
         return render(request, 'treatments/create.html', {'auth_user': auth_user})
     else:
@@ -63,6 +69,9 @@ def edit_treatment(request, code):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     if request.method == 'GET':
         treatment = Treatments.find_treatment(code)
         if treatment is None:
@@ -86,9 +95,13 @@ def edit_treatment(request, code):
 
 
 def delete_treatment(request, code):
-    if Sessions.validate_auth(request) is None:
+    auth_user = Sessions.validate_auth(request)
+    if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
+    if auth_user['role'] != 'admin':
+        error(request, "You don't have permissions for this module")
+        return redirect('/')
     result = Treatments.delete_treatment(code)
     response = redirect('treatments')
     if result is not True:

@@ -6,12 +6,14 @@ from django.contrib.messages import error, success
 from apps.auth.models import Session
 from apps.users.models import User
 from apps.patients.models import Patient
+from apps.treatments.models import Treatment
 from .models import Sequence
 from dentaladmin.utils import validate_form
 
 Sessions = Session()
 Users = User()
 Patients = Patient()
+Treatments = Treatment()
 Sequences = Sequence()
 
 
@@ -87,26 +89,28 @@ def process_sequence(request, code):
     if request.method == 'GET':
         sequence = Sequences.find_sequence(code)
         patient = Patients.find_patient(sequence['patient'])  # Combo data
+        treatments = Treatments.list_treatments()  # Combo data
         if sequence is None:
             error(request, "This sequence does not exist")
             return redirect('sequences')
         return render(request, 'sequences/process.html',
-                      {'auth_user': auth_user, 'sequence': sequence, 'patient': patient})
+                      {'auth_user': auth_user, 'sequence': sequence, 'patient': patient, 'treatments': treatments})
     else:
-        name = request.POST['name']
-        date_of_birth = request.POST['date_of_birth']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        address = request.POST['address']
-        visit_reason = request.POST['visit_reason']
+        patient_dni = request.POST['patient_dni']
+        status = 1
+        diagnostic_code = request.POST['diagnostic_code']
+        treatment_code = request.POST['treatment_code']
+        treatment_quantity = request.POST['treatment_quantity']
+        treatment_price = Treatments.get_treatment_by_code(treatment_code)['price']
         form = validate_form(request.POST)
         if form is not True:
             error(request, "There is a problem with your info, please check")
             return redirect('process_sequence', code=code)
-        result = Sequences.process_sequence(code, name, date_of_birth, email, phone, address, visit_reason)
+        result = Sequences.process_sequence(code, diagnostic_code, treatment_code, treatment_price, treatment_quantity)
         if result is not True:
             error(request, result)
         else:
+            Patients.edit_diagnostic(patient_dni, diagnostic_code, status)
             success(request, "Treatment sequence updated successfully")
         return redirect('process_sequence', code=code)
 

@@ -1,4 +1,5 @@
 # List of common connections and functions
+import datetime
 import pymongo
 import hashlib
 import random
@@ -51,3 +52,7 @@ def upload_file(pic, file):
             for chunk in file.chunks():
                 destination.write(chunk)
         return True
+
+
+def get_today_date(date_format="%m/%d/%Y"):
+    return datetime.date.today().strftime(date_format)

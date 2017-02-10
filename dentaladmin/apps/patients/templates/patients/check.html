@@ -130,9 +130,11 @@
                                                 {{ history.diagnostic }}
                                             </td>
                                             <td>
-                                                <a href="{% url 'delete_diagnostic' patient.dni history.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
-                                                    <i class="icon-trash"></i>
-                                                </a>
+                                                {% if history.status == 0 %}
+                                                    <a href="{% url 'delete_diagnostic' patient.dni history.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
+                                                        <i class="icon-trash"></i>
+                                                    </a>
+                                                {% endif %}
                                             </td>
                                         </tr>
                                     {% endfor %}

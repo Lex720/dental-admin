@@ -27,6 +27,7 @@
         <div class="row" style="margin-top: 50px;">
             <form class="form-horizontal" role="form" action="{% url 'process_sequence' sequence.code %}" method="post">
                 {% csrf_token %}
+                <input type="hidden" name="patient_dni" id="patient_dni" value="{{ patient.dni }}">
                 <div class="col-md-12">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -36,7 +37,9 @@
                                     <select id="diagnostic_code" name="diagnostic_code" required>
                                         <option value="">Select</option>
                                         {% for history in patient.clinic_history %}
-                                            <option value="{{ history.code }}">{{ history.diagnostic }}</option>
+                                            {% if history.status == 0 %}
+                                                <option value="{{ history.code }}">{{ history.diagnostic }}</option>
+                                            {% endif %}
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -50,8 +53,8 @@
                                 <div class="ui-select" style="width: 100%;">
                                     <select id="treatment_code" name="treatment_code" required>
                                         <option value="">Select</option>
-                                        {% for history in patient.clinic_history %}
-                                            <option value="{{ history.code }}">{{ history.diagnostic }}</option>
+                                        {% for treatment in treatments %}
+                                            <option value="{{ treatment.code }}">{{ treatment.name }} - ${{ treatment.price }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -60,10 +63,10 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="quantity" class="col-md-1 control-label">-</label>
+                            <label for="treatment_quantity" class="col-md-1 control-label">-</label>
                             <div class="col-md-10">
                                 <div class="ui-select" style="width: 100%;">
-                                    <select id="quantity" name="quantity" required>
+                                    <select id="treatment_quantity" name="treatment_quantity" required>
                                         <option value="">Quantity</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -100,11 +103,11 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1">
-                                    Date
+                                    Action
                                 </th>
-                                <th class="col-md-2">
+                                <th class="col-md-1">
                                     <span class="line"></span>
-                                    Tooth's
+                                    Date
                                 </th>
                                 <th class="col-md-3">
                                     <span class="line"></span>
@@ -122,10 +125,6 @@
                                     <span class="line"></span>
                                     Subtotal
                                 </th>
-                                <th class="col-md-1">
-                                    <span class="line"></span>
-                                    Action
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,27 +133,24 @@
                                     <!-- results row -->
                                     <tr class="first">
                                         <td>
+{#                                            <a href="{% url 'delete_sequence_treatment' sequence.code treatment.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">#}
+{#                                                <i class="icon-trash"></i>#}
+{#                                            </a>#}
+                                        </td>
+                                        <td>
                                             {{ treatment.date }}
                                         </td>
                                         <td>
-                                            {{ treatment.tooths }}
+                                            {{ treatment.diagnostic_code }}
                                         </td>
                                         <td>
-                                            {{ treatment.diagnostic }}
+                                            {{ treatment.treatment_code }}
                                         </td>
                                         <td>
-                                            {{ treatment.treatment }}
-                                        </td>
-                                        <td>
-                                            {{ treatment.quantity }}
+                                            {{ treatment.treatment_quantity }}
                                         </td>
                                         <td>
                                             {{ treatment.subtotal }}
-                                        </td>
-                                        <td>
-                                            <a href="{% url 'delete_sequence_treatment' sequence.code treatment.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
-                                                <i class="icon-trash"></i>
-                                            </a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -170,7 +166,12 @@
         </div>
 
         <div class="row" style="margin-top: 40px;">
-            <a href="{% url 'sequences' %}" class="btn-flat success pull-left">Back</a>
+            <div class="col-md-6">
+                <a href="{% url 'sequences' %}" class="btn-flat success pull-left">Back</a>
+            </div>
+            <div class="col-md-6" style="padding-right: 20px;">
+                <p class="pull-right"><b>TOTAL: &nbsp; ${{ sequence.total|default:0.0 }}</b></p>
+            </div>
         </div>
 
     </div>

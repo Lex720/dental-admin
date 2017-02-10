@@ -89,6 +89,17 @@ class Patient:
             return "Oops, patient not updated"
         return True
 
+    def edit_diagnostic(self, dni, code, status):
+        patient = self.patients.find_one({'dni': dni, 'clinic_history.code': int(code)})
+        if patient is None:
+            return "Patient not found"
+        try:
+            self.patients.update_one({'dni': dni, 'clinic_history.code': int(code)},
+                                     {'$set': {'clinic_history.$.status': status}})
+        except errors.OperationFailure:
+            return "Oops, patient not updated"
+        return True
+
     def delete_diagnostic(self, dni, code):
         patient = self.patients.find_one({'dni': dni})
         if patient is None:

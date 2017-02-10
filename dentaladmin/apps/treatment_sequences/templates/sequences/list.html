@@ -38,16 +38,19 @@
                             <th class="col-md-1">
                                 Code
                             </th>
-                            <th class="col-md-2">
+                            <th class="col-md-1">
                                 <span class="line"></span>Date
                             </th>
-                            <th class="col-md-2">
+                            <th class="col-md-1">
+                                <span class="line"></span>Shift
+                            </th>
+                            <th class="col-md-3">
                                 <span class="line"></span>Doctor
                             </th>
                             <th class="col-md-3">
                                 <span class="line"></span>Patient
                             </th>
-                            <th class="col-md-2">
+                            <th class="col-md-1">
                                 <span class="line"></span>Status
                             </th>
                             <th class="col-md-2">
@@ -67,6 +70,9 @@
                                     {{ sequence.date }}
                                 </td>
                                 <td>
+                                    {{ sequence.shift|capfirst }}
+                                </td>
+                                <td>
                                     {{ sequence.doctor }}
                                 </td>
                                 <td>
@@ -77,7 +83,6 @@
                                     {% if sequence.status == 1 %}<span class="label label-info">Open</span>{% endif %}
                                     {% if sequence.status == 2 %}<span class="label label-warning">In Progress</span>{% endif %}
                                     {% if sequence.status == 3 %}<span class="label label-success">Closed</span>{% endif %}
-
                                 </td>
                                 <td>
                                     {% if sequence.status == 1 or sequence.status == 2 %}

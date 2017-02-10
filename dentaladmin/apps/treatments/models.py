@@ -68,3 +68,10 @@ class Treatment:
         if count > 0:
             return treatments
         return None
+
+    def get_treatment_by_code(self, code, status=1):
+        query = {'code': code, 'status': status}
+        treatment = self.treatments.find_one(query)
+        if treatment is not None:
+            return treatment
+        return None

@@ -68,14 +68,21 @@ class Sequence:
             return False
         return code
 
-    def process_sequence(self, code, name, date_of_birth, email, phone, address, visit_reason):
+    def process_sequence(self, code, diagnostic_code, treatment_code, treatment_price, treatment_quantity):
         sequence = self.find_sequence(code)
         if sequence is None:
             return "Sequence not found"
+        date = utils.get_today_date()
+        subtotal = treatment_price * int(treatment_quantity)
+        if 'total' in sequence:
+            new_total = sequence['total'] + float(subtotal)
+        else:
+            new_total = float(subtotal)
+        document = {'date': date, 'diagnostic_code': int(diagnostic_code), 'treatment_code': treatment_code,
+                    'treatment_quantity': int(treatment_quantity), 'subtotal': subtotal}
         try:
-            self.sequences.update_one({'code': int(code)}, {
-                '$set': {'name': name, 'date_of_birth': date_of_birth, 'email': email, 'phone': phone,
-                         'address': address, 'visit_reason': visit_reason}})
+            self.sequences.update_one({'code': int(code)}, {'$set': {'total': round(new_total, 2), 'status': 2},
+                                                            '$push': {'treatments': document}})
         except errors.OperationFailure:
             return "Oops, sequence not processed"
         return True
@@ -88,6 +95,16 @@ class Sequence:
             self.sequences.update_one({'code': int(code)}, {'$set': {'status': 3}})
         except errors.OperationFailure:
             return "Oops, sequence not closed"
+        return True
+
+    def invoice_sequence(self, code):
+        sequence = self.find_sequence(code)
+        if sequence is None:
+            return "Sequence not found"
+        try:
+            self.sequences.update_one({'code': int(code)}, {'$set': {'status': 0}})
+        except errors.OperationFailure:
+            return "Oops, sequence not invoiced"
         return True
 
     def cancel_sequence(self, code):
@@ -109,14 +126,4 @@ class Sequence:
                                   upsert=False, multi=True)
         except errors.OperationFailure:
             return False
-        return True
-
-    def invoice_sequence(self, code):
-        sequence = self.find_sequence(code)
-        if sequence is None:
-            return "Sequence not found"
-        try:
-            self.sequences.update_one({'code': int(code)}, {'$set': {'status': 0}})
-        except errors.OperationFailure:
-            return "Oops, sequence not invoiced"
         return True

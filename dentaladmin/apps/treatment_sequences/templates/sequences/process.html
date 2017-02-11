@@ -19,9 +19,14 @@
         <!-- header -->
         <div class="row header" style="margin-bottom: 20px;">
             <div class="col-md-8">
-                <h3 class="name">Treatment sequence code: {{ sequence.code }}</h3>
+                <h4 class="name">Treatment sequence code: {{ sequence.code }}</h4>
                 <span class="area">Select the patient's diagnostic and treatment for it</span>
             </div>
+            {% if sequence.status == 2 and sequence.total > 0 %}
+                <a href="{% url 'close_sequence' sequence.code %}" class="btn-flat icon large pull-right edit">
+                    Close treatment sequence
+                </a>
+            {% endif %}
         </div>
 
         <div class="row" style="margin-top: 50px;">
@@ -97,80 +102,79 @@
 
         <div class="row profile" style="margin-top: 50px; padding: 0 20px;">
             <div class="">
-                <form class="form-horizontal" role="form" action="{% url 'create_diagnostic' sequence.code %}" method="post">
-                    {% csrf_token %}
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th class="col-md-1">
-                                    Action
-                                </th>
-                                <th class="col-md-1">
-                                    <span class="line"></span>
-                                    Date
-                                </th>
-                                <th class="col-md-3">
-                                    <span class="line"></span>
-                                    Diagnostic
-                                </th>
-                                <th class="col-md-3">
-                                    <span class="line"></span>
-                                    Treatment
-                                </th>
-                                 <th class="col-md-1">
-                                    <span class="line"></span>
-                                    Quantity
-                                </th>
-                                <th class="col-md-1">
-                                    <span class="line"></span>
-                                    Subtotal
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% if sequence.treatments != None %}
-                                {% for treatment in sequence.treatments %}
-                                    <!-- results row -->
-                                    <tr class="first">
-                                        <td>
-{#                                            <a href="{% url 'delete_sequence_treatment' sequence.code treatment.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">#}
-{#                                                <i class="icon-trash"></i>#}
-{#                                            </a>#}
-                                        </td>
-                                        <td>
-                                            {{ treatment.date }}
-                                        </td>
-                                        <td>
-                                            {{ treatment.diagnostic_code }}
-                                        </td>
-                                        <td>
-                                            {{ treatment.treatment_code }}
-                                        </td>
-                                        <td>
-                                            {{ treatment.treatment_quantity }}
-                                        </td>
-                                        <td>
-                                            {{ treatment.subtotal }}
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            {% else %}
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-md-1">
+                                Action
+                            </th>
+                            <th class="col-md-1">
+                                <span class="line"></span>
+                                Date
+                            </th>
+                            <th class="col-md-4">
+                                <span class="line"></span>
+                                Diagnostic tooth's
+                            </th>
+                            <th class="col-md-4">
+                                <span class="line"></span>
+                                Diagnostic description
+                            </th>
+                            <th class="col-md-4">
+                                <span class="line"></span>
+                                Treatment
+                            </th>
+                             <th class="col-md-1">
+                                <span class="line"></span>
+                                Quantity
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if sequence.treatments != None %}
+                            {% for treatment in sequence.treatments %}
+                                <!-- results row -->
                                 <tr class="first">
-                                    <td colspan="4">There is no records</td>
+                                    <td>
+                                        <form class="form-horizontal" role="form" action="{% url 'delete_sequence_treatment' sequence.code treatment.diagnostic_code %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="subtotal" id="subtotal" value="{{ treatment.subtotal }}">
+                                            <input type="hidden" name="patient_dni" id="patient_dni" value="{{ sequence.patient }}">
+                                            <button type="submit" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
+                                                <i class="icon-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        {{ treatment.date }}
+                                    </td>
+                                    <td>
+                                        {{ treatment.diagnostic_code }}
+                                    </td>
+                                    <td>
+                                        {{ treatment.diagnostic_code }}
+                                    </td>
+                                    <td>
+                                        {{ treatment.treatment_code }}
+                                    </td>
+                                    <td>
+                                        x{{ treatment.treatment_quantity }}
+                                    </td>
                                 </tr>
-                            {% endif %}
-                        </tbody>
-                    </table>
-                </form>
+                            {% endfor %}
+                        {% else %}
+                            <tr class="first">
+                                <td colspan="4">There is no records</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <div class="row" style="margin-top: 40px;">
             <div class="col-md-6">
                 <a href="{% url 'sequences' %}" class="btn-flat success pull-left">Back</a>
-            </div>
-            <div class="col-md-6" style="padding-right: 20px;">
-                <p class="pull-right"><b>TOTAL: &nbsp; ${{ sequence.total|default:0.0 }}</b></p>
             </div>
         </div>
 

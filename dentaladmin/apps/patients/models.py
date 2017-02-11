@@ -105,7 +105,7 @@ class Patient:
         if patient is None:
             return "Patient not found"
         try:
-            self.patients.update({'dni': dni}, {'$pull': {'clinic_history': {'code': int(code)}}})
+            self.patients.update_one({'dni': dni}, {'$pull': {'clinic_history': {'code': int(code)}}})
         except errors.OperationFailure:
             return "Oops, patient not updated"
         return True

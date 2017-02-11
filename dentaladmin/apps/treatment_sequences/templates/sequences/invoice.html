@@ -1,0 +1,114 @@
+{% extends '_base.html' %}
+
+<!-- Static files django label -->
+{% load static %}
+
+<!-- this page specific styles -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/compiled/user-profile.css' %}" type="text/css" media="screen"
+          xmlns="http://www.w3.org/1999/html"/>
+    <link rel="stylesheet" href="{% static 'css/compiled/ui-elements.css' %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Edit Treatment Sequence {% endblock %}
+
+{% block active-sequences %} class="active" {% endblock %}
+
+{% block content %}
+    <div id="pad-wrapper" class="user-profile">
+        <!-- header -->
+        <div class="row header" style="margin-bottom: 20px;">
+            <div class="col-md-8">
+                <h4 class="name">Treatment sequence code: {{ sequence.code }}</h4>
+                <span class="area">Download or email the sequence invoice</span>
+            </div>
+            {% if sequence.status == 2 and sequence.total > 0 %}
+                <a href="{% url 'close_sequence' sequence.code %}" class="btn-flat icon large pull-right edit">
+                    Close treatment sequence
+                </a>
+            {% endif %}
+        </div>
+
+        <div class="row profile" style="margin-top: 50px; padding: 0 20px;">
+            <div class="">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">
+                                <span class="line"></span>
+                                Date
+                            </th>
+                            <th class="col-md-4">
+                                <span class="line"></span>
+                                Diagnostic
+                            </th>
+                            <th class="col-md-4">
+                                <span class="line"></span>
+                                Treatment
+                            </th>
+                             <th class="col-md-1">
+                                <span class="line"></span>
+                                Quantity
+                            </th>
+                            <th class="col-md-1">
+                                <span class="line"></span>
+                                Subtotal
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if sequence.treatments != None %}
+                            {% for treatment in sequence.treatments %}
+                                <!-- results row -->
+                                <tr class="first">
+                                    <td>
+                                        {{ treatment.date }}
+                                    </td>
+                                    <td>
+                                        {{ treatment.diagnostic_code }}
+                                    </td>
+                                    <td>
+                                        {{ treatment.treatment_code }}
+                                    </td>
+                                    <td>
+                                        x{{ treatment.treatment_quantity }}
+                                    </td>
+                                    <td>
+                                        ${{ treatment.subtotal }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr class="first">
+                                <td colspan="4">There is no records</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-12" style="padding-right: 20px;">
+                <p class="pull-right"><b>TOTAL: &nbsp; ${{ sequence.total|default:0.0 }}</b></p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-12" style="padding-right: 20px;">
+                <p class="text-center">
+                    <a href="#" onclick="window.print();" class="btn-glow primary">Print document</a>
+                    <span> &nbsp; OR &nbsp; </span>
+                    <a class="btn-glow primary">Email patient</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-12">
+                <a href="{% url 'sequences' %}" class="btn-flat success pull-left">Back</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

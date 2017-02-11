@@ -1,4 +1,4 @@
-# from django.http import HttpResponse
+from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
@@ -28,6 +28,7 @@ def index(request, search=None):
         sequences = Sequences.find_sequences(search, auth_user['username'])
     else:
         sequences = Sequences.find_sequences(search)
+    # return HttpResponse(sequences)
     if sequences is None:
         return render(request, 'sequences/list.html', {'auth_user': auth_user, 'sequences': sequences})
     paginator = Paginator(sequences, 5)
@@ -115,40 +116,64 @@ def process_sequence(request, code):
         return redirect('process_sequence', code=code)
 
 
+def delete_sequence_treatment(request, code, code2):
+    auth_user = Sessions.validate_auth(request)
+    if auth_user is None:
+        error(request, "You must log in first")
+        return redirect('login')
+    if request.method == 'POST':
+        subtotal = request.POST['subtotal']
+        patient_dni = request.POST['patient_dni']
+        status = 0
+        form = validate_form(request.POST)
+        if form is not True:
+            error(request, "There is a problem with your info, please check")
+            return redirect('process_sequence', code=code)
+        result = Sequences.delete_sequence_treatment(code, code2, subtotal)
+        if result is not True:
+            error(request, result)
+        else:
+            Patients.edit_diagnostic(patient_dni, code2, status)
+            success(request, "Treatment deleted successfully")
+        return redirect('process_sequence', code=code)
+
+
 def close_sequence(request, code):
     if Sessions.validate_auth(request) is None:
         error(request, "You must log in first")
         return redirect('login')
-    result = Sequences.close_sequence(code)
-    response = redirect('sequences')
-    if result is not True:
-        error(request, result)
+    if request.method == 'GET':
+        result = Sequences.close_sequence(code)
+        response = redirect('sequences')
+        if result is not True:
+            error(request, result)
+            return response
+        success(request, "Treatment sequence closed successfully")
         return response
-    success(request, "Treatment sequence closed successfully")
-    return response
+
+
+def invoice_sequence(request, code):
+    auth_user = Sessions.validate_auth(request)
+    if auth_user is None:
+        error(request, "You must log in first")
+        return redirect('login')
+    if request.method == 'GET':
+        sequence = Sequences.find_sequence(code)
+        if sequence is None:
+            error(request, "This sequence does not exist")
+            return redirect('sequences')
+        return render(request, 'sequences/invoice.html', {'auth_user': auth_user, 'sequence': sequence})
 
 
 def cancel_sequence(request, code):
     if Sessions.validate_auth(request) is None:
         error(request, "You must log in first")
         return redirect('login')
-    result = Sequences.cancel_sequence(code)
-    response = redirect('sequences')
-    if result is not True:
-        error(request, result)
+    if request.method == 'GET':
+        result = Sequences.cancel_sequence(code)
+        response = redirect('sequences')
+        if result is not True:
+            error(request, result)
+            return response
+        success(request, "Treatment sequence canceled successfully")
         return response
-    success(request, "Treatment sequence canceled successfully")
-    return response
-
-
-def invoice_sequence(request, code):
-    if Sessions.validate_auth(request) is None:
-        error(request, "You must log in first")
-        return redirect('login')
-    result = Sequences.invoice_sequence(code)
-    response = redirect('sequences')
-    if result is not True:
-        error(request, result)
-        return response
-    success(request, "Treatment sequence deleted successfully")
-    return response

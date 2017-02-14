@@ -67,6 +67,40 @@ class Patient:
             return "Oops, patient not updated"
         return True
 
+    def find_diagnostics(self, dni, status=1):
+        cursor = self.patients.aggregate([
+            {'$match': {'dni': dni, 'status': status}},
+            {'$unwind': "$clinic_history"},
+            {"$project": {
+                "_id": 0,
+                "code": "$clinic_history.code",
+                "diagnostic": "$clinic_history.diagnostic",
+                "doctor": "$clinic_history.doctor",
+                "date": "$clinic_history.date",
+                "status": "$clinic_history.status",
+                "tooths": "$clinic_history.tooths"}},
+            {'$lookup': {
+                'from': "users",
+                'localField': "doctor",
+                'foreignField': "username",
+                'as': "doctor_data"}},
+            {'$unwind': "$doctor_data"},
+            {"$project": {
+                "code": 1,
+                "date": 1,
+                "diagnostic": 1,
+                "tooths": 1,
+                "status": 1,
+                "doctor": 1,
+                "doctor_name": "$doctor_data.name"}},
+            {"$sort": {"code": 1}}
+        ])
+
+        diagnostic = list(cursor)
+        if not diagnostic:
+            return None
+        return diagnostic
+
     def add_diagnostic(self, dni, date, doctor, tooths, diagnostic, status=0):
         patient = self.find_patient(dni)
         cursor = self.patients.aggregate([

@@ -85,6 +85,10 @@
                                 </th>
                                 <th class="col-md-1">
                                     <span class="line"></span>
+                                    Code
+                                </th>
+                                <th class="col-md-1">
+                                    <span class="line"></span>
                                     Date
                                 </th>
                                 <th class="col-md-2">
@@ -95,7 +99,7 @@
                                     <span class="line"></span>
                                     Tooth's
                                 </th>
-                                <th class="col-md-4">
+                                <th class="col-md-3">
                                     <span class="line"></span>
                                     Diagnostic
                                 </th>
@@ -106,32 +110,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% if patient.clinic_history != None %}
-                                {% for history in patient.clinic_history %}
+                            {% if diagnostics != None %}
+                                {% for diagnostic in diagnostics %}
                                     <!-- results row -->
                                     <tr class="first">
                                         <td>
-                                            {% if history.status == 0 %}
+                                            {{ diagnostic.code }}
+                                        </td>
+                                        <td>
+                                            {% if diagnostic.status == 0 %}
                                                 <span class="label label-info">Pending</span>
                                             {% else %}
                                                 <span class="label label-success">Completed</span>
                                             {% endif %}
                                         </td>
                                         <td>
-                                            {{ history.date }}
+                                            {{ diagnostic.date }}
                                         </td>
                                         <td>
-                                            {{ history.doctor }}
+                                            {{ diagnostic.doctor_name }}
                                         </td>
                                         <td>
-                                            {{ history.tooths }}
+                                            {{ diagnostic.tooths }}
                                         </td>
                                         <td>
-                                            {{ history.diagnostic }}
+                                            {{ diagnostic.diagnostic }}
                                         </td>
                                         <td>
-                                            {% if history.status == 0 %}
-                                                <a href="{% url 'delete_diagnostic' patient.dni history.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
+                                            {% if diagnostic.status == 0 %}
+                                                <a href="{% url 'delete_diagnostic' patient.dni diagnostic.code %}" class="btn-flat icon pull-left delete-user" data-toggle="tooltip" title="Delete" data-placement="top">
                                                     <i class="icon-trash"></i>
                                                 </a>
                                             {% endif %}
@@ -145,6 +152,9 @@
                             {% endif %}
                             <!-- new item row -->
                             <tr>
+                                <td>
+
+                                </td>
                                 <td>
                                     <input type="text" class="form-control inline-input" name="status" id="status" placeholder="" value="Pending" readonly>
                                 </td>

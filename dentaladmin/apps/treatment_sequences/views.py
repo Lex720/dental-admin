@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
@@ -28,7 +28,6 @@ def index(request, search=None):
         sequences = Sequences.find_sequences(search, auth_user['username'])
     else:
         sequences = Sequences.find_sequences(search)
-    # return HttpResponse(sequences)
     if sequences is None:
         return render(request, 'sequences/list.html', {'auth_user': auth_user, 'sequences': sequences})
     paginator = Paginator(sequences, 5)
@@ -89,13 +88,15 @@ def process_sequence(request, code):
         return redirect('login')
     if request.method == 'GET':
         sequence = Sequences.find_sequence(code)
-        patient = Patients.find_patient(sequence['patient'])  # Combo data
-        treatments = Treatments.list_treatments()  # Combo data
+        sequence_treatments = Sequences.find_sequence_treatments(code)
+        patient_diagnostics = Patients.find_diagnostics(sequence['patient'])  # Combo data
+        clinic_treatments = Treatments.list_treatments()  # Combo data
         if sequence is None:
             error(request, "This sequence does not exist")
             return redirect('sequences')
         return render(request, 'sequences/process.html',
-                      {'auth_user': auth_user, 'sequence': sequence, 'patient': patient, 'treatments': treatments})
+                      {'auth_user': auth_user, 'sequence': sequence, 'patient_diagnostics': patient_diagnostics,
+                       'clinic_treatments': clinic_treatments, 'sequence_treatments': sequence_treatments})
     else:
         patient_dni = request.POST['patient_dni']
         status = 1
@@ -159,10 +160,12 @@ def invoice_sequence(request, code):
         return redirect('login')
     if request.method == 'GET':
         sequence = Sequences.find_sequence(code)
+        sequence_treatments = Sequences.find_sequence_treatments(code)
         if sequence is None:
             error(request, "This sequence does not exist")
             return redirect('sequences')
-        return render(request, 'sequences/invoice.html', {'auth_user': auth_user, 'sequence': sequence})
+        return render(request, 'sequences/invoice.html',
+                      {'auth_user': auth_user, 'sequence': sequence, 'sequence_treatments': sequence_treatments})
 
 
 def cancel_sequence(request, code):

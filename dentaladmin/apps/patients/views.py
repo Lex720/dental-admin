@@ -1,4 +1,4 @@
-# from django.http import HttpResponse
+from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
@@ -104,10 +104,12 @@ def check_patient(request, dni):
         return redirect('login')
     if request.method == 'GET':
         patient = Patients.find_patient(dni)
+        diagnostics = Patients.find_diagnostics(dni)
         if patient is None:
             error(request, "This patient does not exist")
             return redirect('patients')
-        return render(request, 'patients/check.html', {'auth_user': auth_user, 'patient': patient})
+        return render(request, 'patients/check.html',
+                      {'auth_user': auth_user, 'patient': patient, 'diagnostics': diagnostics})
     else:
         notes = request.POST['notes']
         form = validate_form(request.POST)

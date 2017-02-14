@@ -32,7 +32,7 @@
         <div class="row" style="margin-top: 50px;">
             <form class="form-horizontal" role="form" action="{% url 'process_sequence' sequence.code %}" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="patient_dni" id="patient_dni" value="{{ patient.dni }}">
+                <input type="hidden" name="patient_dni" id="patient_dni" value="{{ sequence.patient }}">
                 <div class="col-md-12">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -41,9 +41,9 @@
                                 <div class="ui-select" style="width: 100%;">
                                     <select id="diagnostic_code" name="diagnostic_code" required>
                                         <option value="">Select</option>
-                                        {% for history in patient.clinic_history %}
-                                            {% if history.status == 0 %}
-                                                <option value="{{ history.code }}">{{ history.diagnostic }}</option>
+                                        {% for diagnostic in patient_diagnostics %}
+                                            {% if diagnostic.status == 0 %}
+                                                <option value="{{ diagnostic.code }}">{{ diagnostic.diagnostic }}</option>
                                             {% endif %}
                                         {% endfor %}
                                     </select>
@@ -58,7 +58,7 @@
                                 <div class="ui-select" style="width: 100%;">
                                     <select id="treatment_code" name="treatment_code" required>
                                         <option value="">Select</option>
-                                        {% for treatment in treatments %}
+                                        {% for treatment in clinic_treatments %}
                                             <option value="{{ treatment.code }}">{{ treatment.name }} - ${{ treatment.price }}</option>
                                         {% endfor %}
                                     </select>
@@ -108,17 +108,13 @@
                             <th class="col-md-1">
                                 Action
                             </th>
-                            <th class="col-md-1">
+                            <th class="col-md-3">
                                 <span class="line"></span>
                                 Date
                             </th>
-                            <th class="col-md-4">
+                            <th class="col-md-3">
                                 <span class="line"></span>
-                                Diagnostic tooth's
-                            </th>
-                            <th class="col-md-4">
-                                <span class="line"></span>
-                                Diagnostic description
+                                Diagnostic code
                             </th>
                             <th class="col-md-4">
                                 <span class="line"></span>
@@ -131,8 +127,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% if sequence.treatments != None %}
-                            {% for treatment in sequence.treatments %}
+                        {% if sequence_treatments != None %}
+                            {% for treatment in sequence_treatments %}
                                 <!-- results row -->
                                 <tr class="first">
                                     <td>
@@ -152,10 +148,7 @@
                                         {{ treatment.diagnostic_code }}
                                     </td>
                                     <td>
-                                        {{ treatment.diagnostic_code }}
-                                    </td>
-                                    <td>
-                                        {{ treatment.treatment_code }}
+                                        {{ treatment.treatment_name }}
                                     </td>
                                     <td>
                                         x{{ treatment.treatment_quantity }}

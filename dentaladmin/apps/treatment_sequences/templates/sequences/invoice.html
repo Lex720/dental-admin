@@ -22,11 +22,6 @@
                 <h4 class="name">Treatment sequence code: {{ sequence.code }}</h4>
                 <span class="area">Download or email the sequence invoice</span>
             </div>
-            {% if sequence.status == 2 and sequence.total > 0 %}
-                <a href="{% url 'close_sequence' sequence.code %}" class="btn-flat icon large pull-right edit">
-                    Close treatment sequence
-                </a>
-            {% endif %}
         </div>
 
         <div class="row profile" style="margin-top: 50px; padding: 0 20px;">
@@ -38,13 +33,17 @@
                                 <span class="line"></span>
                                 Date
                             </th>
-                            <th class="col-md-4">
+                            <th class="col-md-2">
                                 <span class="line"></span>
-                                Diagnostic
+                                Diagnostic code
                             </th>
                             <th class="col-md-4">
                                 <span class="line"></span>
-                                Treatment
+                                Treatment description
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>
+                                Treatment price
                             </th>
                              <th class="col-md-1">
                                 <span class="line"></span>
@@ -57,8 +56,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% if sequence.treatments != None %}
-                            {% for treatment in sequence.treatments %}
+                        {% if sequence_treatments != None %}
+                            {% for treatment in sequence_treatments %}
                                 <!-- results row -->
                                 <tr class="first">
                                     <td>
@@ -68,7 +67,10 @@
                                         {{ treatment.diagnostic_code }}
                                     </td>
                                     <td>
-                                        {{ treatment.treatment_code }}
+                                        {{ treatment.treatment_name }}
+                                    </td>
+                                    <td>
+                                        ${{ treatment.treatment_price }}
                                     </td>
                                     <td>
                                         x{{ treatment.treatment_quantity }}

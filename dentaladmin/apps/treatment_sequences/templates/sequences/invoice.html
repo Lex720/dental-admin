@@ -97,12 +97,15 @@
         </div>
 
         <div class="row" style="margin-top: 40px;">
-            <div class="col-md-12" style="padding-right: 20px;">
-                <p class="text-center">
-                    <a href="#" onclick="window.print();" class="btn-glow primary">Print document</a>
-                    <span> &nbsp; OR &nbsp; </span>
-                    <a class="btn-glow primary">Email patient</a>
-                </p>
+            <div class="col-md-12">
+                <form class="form-horizontal" role="form" action="{% url 'invoice_sequence' sequence.code %}" method="post">
+                    <p class="text-center">
+                        <a href="#" onclick="window.print();" class="btn-glow primary">Print document</a>
+                        <span> &nbsp; OR &nbsp; </span>
+                        {% csrf_token %}
+                        <button type="submit" class="btn-glow primary">Email patient</button>
+                    </p>
+                </form>
             </div>
         </div>
 

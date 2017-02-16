@@ -1,0 +1,23 @@
+Hello <strong>{{ patient.name }}</strong>
+
+<br><br>
+
+This is the receipt from your treatment sequence number: <strong>{{ sequence.code }}</strong>
+
+<br><br>
+
+{% for treatment in sequence_treatments %}
+    <br>
+    Date: <strong>{{ treatment.date }}</strong>
+    <br>
+    Treatment price: <strong>${{ treatment.treatment_price }}</strong>
+    <br>
+    Treatment quantity: <strong>x{{ treatment.treatment_quantity }}</strong>
+    <br>
+    Subtotal: <strong>${{ treatment.subtotal }}</strong>
+    <br>
+{% endfor %}
+
+<br><br>
+
+Total: <strong>${{ sequence.total }}</strong>

@@ -161,3 +161,10 @@ class Patient:
         if count > 0:
             return patients
         return None
+
+    def get_patient_by_dni(self, dni, status=1):
+        query = {'dni': dni, 'status': status}
+        patient = self.patients.find_one(query)
+        if patient is not None:
+            return patient
+        return None

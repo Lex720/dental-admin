@@ -1,7 +1,10 @@
 # from django.http import HttpResponse
+from django.core.mail import BadHeaderError, EmailMultiAlternatives
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
+from django.template import Context
+from django.template.loader import get_template
 
 from apps.auth.models import Session
 from apps.users.models import User
@@ -166,6 +169,28 @@ def invoice_sequence(request, code):
             return redirect('sequences')
         return render(request, 'sequences/invoice.html',
                       {'auth_user': auth_user, 'sequence': sequence, 'sequence_treatments': sequence_treatments})
+    if request.method == 'POST':
+        sequence = Sequences.find_sequence(code)
+        sequence_treatments = Sequences.find_sequence_treatments(code)
+        patient = Patients.get_patient_by_dni(sequence['patient'])
+        try:
+            plaintext = get_template('sequences/emails/email.txt')
+            htmly = get_template('sequences/emails/email.html')
+
+            data = Context({'patient': patient, 'sequence': sequence, 'sequence_treatments': sequence_treatments})
+
+            subject, from_email, to = 'Invoice', 'no-reply@dentaladmin.com', patient['email']
+            text_content = plaintext.render(data)
+            html_content = htmly.render(data)
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+
+        except BadHeaderError:
+            error(request, "Invoice not sent")
+            return redirect('sequences')
+        success(request, "Invoice sent successfully")
+        return redirect('sequences')
 
 
 def cancel_sequence(request, code):

@@ -115,10 +115,12 @@
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu" style="display: none;">
-                    {% if auth_user.role == 'admin' or auth_user.role == 'office'%}
+                    {% if auth_user.role == 'admin' or auth_user.role == 'office' %}
                         <li><a href="{% url 'reports_total' %}">Total incomes</a></li>
                     {% endif %}
-                    <li><a href="{% url 'reports_payment' %}">Payments</a></li>
+                    {% if auth_user.role == 'doctor' %}
+                        <li><a href="{% url 'reports_payment' %}">Payments</a></li>
+                    {% endif %}
                 </ul>
             </li>
         </ul>

@@ -15,7 +15,7 @@ def total(request, search=None):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
-    if auth_user['role'] != 'admin':
+    if auth_user['role'] == 'doctor':
         error(request, "You don't have permissions for this report")
         return redirect('/')
     if 'search' in request.GET:

@@ -40,6 +40,7 @@ class Sequence:
     def find_sequences(self, search, username=None):
         match = get_sequence_match(search, username)
         cursor = self.sequences.aggregate([
+            {'$match': match},
             {'$lookup': {
                 'from': 'patients',
                 'localField': 'patient',
@@ -60,7 +61,6 @@ class Sequence:
                 'doctor': 1,
                 'doctor_name': '$doctor_data.name',
                 'patient_name': '$patient_data.name'}},
-            {'$match': match},
             {'$sort': {'code': 1}}
         ])
 
@@ -211,6 +211,7 @@ class Sequence:
         match = get_sequence_match(search, username)
         cursor = self.sequences.aggregate([
             {'$match': {'status': 3}},
+            {'$match': match},
             {'$lookup': {
                 'from': 'patients',
                 'localField': 'patient',
@@ -231,7 +232,6 @@ class Sequence:
                 'doctor': 1,
                 'doctor_name': '$doctor_data.name',
                 'patient_name': '$patient_data.name'}},
-            {'$match': match},
             {'$sort': {'date': -1}}
         ])
 

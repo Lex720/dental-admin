@@ -1,13 +1,18 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.messages import error, success
 
 from .models import Auth, Session
 from apps.users.models import User
+from apps.patients.models import Patient
+from apps.treatment_sequences.models import Sequence
 from dentaladmin.utils import validate_form
 
 Auths = Auth()
 Sessions = Session()
 Users = User()
+Patients = Patient()
+Sequences = Sequence()
 
 
 def signup(request):
@@ -72,4 +77,10 @@ def dashboard(request):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
-    return render(request, 'auth/dashboard.html', {'auth_user': auth_user})
+    users = Users.find_users(None).count()
+    patients = Patients.find_patients(None).count()
+    sequences = Sequences.report_sequences(None)
+    total = Sequences.report_sequences_total(None)
+    return render(request, 'auth/dashboard.html',
+                  {'auth_user': auth_user, 'users': users, 'patients': patients, 'sequences': sequences,
+                   'total': total})

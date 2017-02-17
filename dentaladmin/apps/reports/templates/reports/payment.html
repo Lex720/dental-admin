@@ -16,7 +16,7 @@
     <div id="pad-wrapper" class="users-list">
         <div class="row header">
             <h3>Payment report</h3>
-            <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
+            <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
                 <form class="form-horizontal" role="form" action="{% url 'reports_payment' %}" method="get">
                     {% csrf_token %}
                     <input type="text" class="col-md-5 search" name="search" placeholder="Type a reports's data...">

@@ -1,0 +1,102 @@
+{% extends '_base.html' %}
+
+<!-- Static files django label -->
+{% load static %}
+
+<!-- this page specific styles -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/compiled/user-list.css' %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %} Treatments List {% endblock %}
+
+{% block active-reports %} class="active" {% endblock %}
+
+{% block content %}
+    <div id="pad-wrapper" class="users-list">
+        <div class="row header">
+            <h3>Payment report</h3>
+            <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
+                <form class="form-horizontal" role="form" action="{% url 'reports_payment' %}" method="get">
+                    {% csrf_token %}
+                    <input type="text" class="col-md-5 search" name="search" placeholder="Type a reports's data...">
+                </form>
+            </div>
+        </div>
+        <!-- Treatments table -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">
+                                Sequence code
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Date
+                            </th>
+                            <th class="col-md-3">
+                                <span class="line"></span>Patient
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Total
+                            </th>
+                            <th class="col-md-2">
+                                <span class="line"></span>Earned
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- row -->
+                    {% if reports != None %}
+                        {% for report in reports %}
+                            <tr class="first">
+                                <td>
+                                    <a class="name">{{ report.code }}</a>
+                                </td>
+                                <td>
+                                    {{ report.date }}
+                                </td>
+                                <td>
+                                    {{ report.patient_name }}
+                                </td>
+                                <td>
+                                    ${{ report.total }}
+                                </td>
+                                <td>
+                                    ${{ report.earned|floatformat:"2" }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr class="first">
+                            <td colspan="5">There is no records</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-12" style="padding-right: 20px;">
+                <p class="pull-right"><b>TOTAL: &nbsp; ${{ total_amount|default:0.0 }}</b></p>
+            </div>
+        </div>
+
+        <!-- end reports table -->
+        {% if reports != None %}
+            <!-- Paginator -->
+            <ul class="pagination pull-right">
+                {% if pages.has_previous %}
+                    <li><a href="?page={{ pages.previous_page_number }}">&#8249;</a></li>
+                {% endif %}
+                <li class="active"><a>Page {{ pages.number }} of {{ pages.paginator.num_pages }}.</a></li>
+                {% if pages.has_next %}
+                    <li><a href="?page={{ pages.next_page_number }}">&#8250;</a></li>
+                {% endif %}
+            </ul>
+            <!-- End paginator -->
+        {% endif %}
+    </div>
+{% endblock %}

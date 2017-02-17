@@ -20,6 +20,7 @@ from apps.users import views as users_views
 from apps.patients import views as patients_views
 from apps.treatments import views as treatments_views
 from apps.treatment_sequences import views as sequences_views
+from apps.reports import views as reports_views
 
 urlpatterns = [
     # Dashboard
@@ -57,4 +58,7 @@ urlpatterns = [
     url(r'^sequences/close/(?P<code>\d+)/$', sequences_views.close_sequence, name='close_sequence'),
     url(r'^sequences/cancel/(?P<code>\d+)/$', sequences_views.cancel_sequence, name='cancel_sequence'),
     url(r'^sequences/invoice/(?P<code>\d+)/$', sequences_views.invoice_sequence, name='invoice_sequence'),
+    # Reports
+    url(r'^reports_total/$', reports_views.total, name='reports_total'),
+    url(r'^reports_payment/$', reports_views.payment, name='reports_payment'),
 ]

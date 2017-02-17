@@ -6,4 +6,5 @@
 /apps/patients/__pycache__
 /apps/treatments/__pycache__
 /apps/treatment_sequences/__pycache__
+/apps/reports/__pycache__
 /static/img/avatars/

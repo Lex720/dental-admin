@@ -5,9 +5,8 @@ services:
     ports:
       - "27017:27017"
   web:
-    build: ./build
-    image: python-django
-    command: "bash -c 'cd dentaladmin && python manage.py runserver 0.0.0.0:8000'"
+    # build: .
+    image: lex720/django
     volumes:
       - .:/code
     ports:

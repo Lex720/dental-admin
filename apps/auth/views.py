@@ -77,10 +77,16 @@ def dashboard(request):
     if auth_user is None:
         error(request, "You must log in first")
         return redirect('login')
-    users = Users.find_users(None).count()
-    patients = Patients.find_patients(None).count()
+    users_count = 0
+    users = Users.find_users(None)
+    if users is not None:
+        users_count = users.count()
+    patients_count = 0
+    patients = Patients.find_patients(None)
+    if patients is not None:
+        patients_count = patients.count()
     sequences = Sequences.report_sequences(None)
     total = Sequences.report_sequences_total(None)
     return render(request, 'auth/dashboard.html',
-                  {'auth_user': auth_user, 'users': users, 'patients': patients, 'sequences': sequences,
+                  {'auth_user': auth_user, 'users': users_count, 'patients': patients_count, 'sequences': sequences,
                    'total': total})

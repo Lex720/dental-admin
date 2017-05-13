@@ -30,7 +30,7 @@ SECRET_KEY = 'kkkzsko3)ke+bll+gu#yue0lso-0j7d-b#ydc4c+(4=n5u(21l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['docker.app']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

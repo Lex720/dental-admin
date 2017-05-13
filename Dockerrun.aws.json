@@ -1,0 +1,53 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "dental-admin",
+      "host": {
+        "sourcePath": "/var/app/current/dental-admin"
+      }
+    }
+  ],
+  "containerDefinitions": [
+  	{
+      "name": "db",
+      "image": "mongo",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 27017,
+          "containerPort": 27017
+        }
+      ]
+    },
+    {
+      "name": "dental-admin",
+      "image": "lex720/django",
+      "environment": [
+        {
+          "name": "Container",
+          "value": "Django"
+        }
+      ],
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "containerPort": 8000
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "dental-admin",
+          "containerPath": "/code",
+          "readOnly": true
+        }
+      ],
+      "links": [
+        "db"
+      ]
+    }
+  ]
+}

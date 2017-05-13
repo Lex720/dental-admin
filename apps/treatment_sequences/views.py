@@ -177,7 +177,8 @@ def invoice_sequence(request, code):
             plaintext = get_template('sequences/emails/email.txt')
             htmly = get_template('sequences/emails/email.html')
 
-            data = Context({'patient': patient, 'sequence': sequence, 'sequence_treatments': sequence_treatments})
+            # data = Context({'patient': patient, 'sequence': sequence, 'sequence_treatments': sequence_treatments})
+            data = {'patient': patient, 'sequence': sequence, 'sequence_treatments': sequence_treatments}
 
             subject, from_email, to = 'Invoice', 'no-reply@dentaladmin.com', patient['email']
             text_content = plaintext.render(data)

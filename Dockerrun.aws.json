@@ -42,7 +42,7 @@
         {
           "sourceVolume": "dental-admin",
           "containerPath": "/code",
-          "readOnly": true
+          "readOnly": false
         }
       ],
       "links": [
